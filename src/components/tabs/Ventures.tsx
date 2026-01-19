@@ -1,26 +1,8 @@
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { projects } from '../utils/constant';
 
-const projects = [
-    {
-        title: "Minify",
-        description: "A minimal icon set for minimalists.",
-        image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
-        link: "#"
-    },
-    {
-        title: "Lumina",
-        description: "The ultimate lighting control app.",
-        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-        link: "#"
-    },
-    {
-        title: "Focus",
-        description: "Productivity timer for Mac.",
-        image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&q=80",
-        link: "#"
-    }
-];
+
 
 export function Ventures() {
     return (
