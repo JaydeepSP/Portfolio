@@ -16,9 +16,16 @@ import {
   Github,
   Mail,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import type {
+  Project,
+  Service,
+  SimpleSocialLink,
+  SocialLink,
+  TechStackItem,
+  Testimonial,
+} from "../types";
 
-export const stack: { name: string; icon: LucideIcon }[] = [
+export const stack: TechStackItem[] = [
   // Frontend
   { name: "HTML", icon: Code },
   { name: "CSS", icon: PenTool },
@@ -48,12 +55,7 @@ export const stack: { name: string; icon: LucideIcon }[] = [
   { name: "VS Code", icon: Command },
 ];
 
-export const projects: {
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-}[] = [
+export const projects: Project[] = [
   {
     title: "Minify",
     description: "A minimal icon set for minimalists.",
@@ -77,7 +79,7 @@ export const projects: {
   },
 ];
 
-export const services: { title: string; price: string }[] = [
+export const services: Service[] = [
   {
     title: "Web Design",
     price: "Starts at $500",
@@ -96,13 +98,7 @@ export const services: { title: string; price: string }[] = [
   },
 ];
 
-export const links: {
-  name: string;
-  username: string;
-  url: string;
-  icon: LucideIcon;
-  color: string;
-}[] = [
+export const links: SocialLink[] = [
   {
     name: "Twitter (X)",
     username: "@JaydeepPra58111",
@@ -144,5 +140,52 @@ export const links: {
     url: "mailto:jaydeepprajapati456@gmail.com",
     icon: Mail,
     color: "hover:!text-orange-500",
+  },
+];
+
+export const testimonials: Testimonial[] = [
+  {
+    text: "David is an exceptional designer. He understood our vision perfectly and delivered a site that exceeded our expectations.",
+    author: "Sarah Miller",
+    handle: "@sarahm",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces",
+  },
+  {
+    text: "Working with David was a breeze. Fast communication, top-tier design skills, and a great eye for detail.",
+    author: "James Chen",
+    handle: "@jamesc",
+    image:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100&h=100&fit=crop&crop=faces",
+  },
+  {
+    text: "I highly recommend David to anyone looking for a unique and professional web presence.",
+    author: "Elena Rodriguez",
+    handle: "@elena_rod",
+    image:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=faces",
+  },
+];
+
+export const SOCIAL_LINKS: SimpleSocialLink[] = [
+  {
+    href: "https://x.com/JaydeepPra58111",
+    icon: Twitter,
+  },
+  {
+    href: "https://www.instagram.com/___j._.d___/",
+    icon: Instagram,
+  },
+  {
+    href: "https://www.linkedin.com/in/jaydeep-prajapati-614688214/",
+    icon: Linkedin,
+  },
+  {
+    href: "https://github.com/JaydeepSP",
+    icon: Github,
+  },
+  {
+    href: "mailto:jaydeepprajapati456@gmail.com",
+    icon: Mail,
   },
 ];

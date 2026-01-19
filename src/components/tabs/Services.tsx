@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
-import { services } from "../utils/constant";
+import { services } from "../../utils/constant";
 
 export function Services() {
   return (

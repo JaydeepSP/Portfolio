@@ -1,5 +1,5 @@
-import { Linkedin, Mail, Github } from "lucide-react";
 import profile from "../assets/avatar.png";
+import { SOCIAL_LINKS } from "../utils/constant";
 
 export function Profile() {
   return (
@@ -22,26 +22,9 @@ export function Profile() {
         </p>
       </div>
       <div className="flex gap-2">
-        {/* <SocialLink
-          href="https://x.com/JaydeepPra58111"
-          icon={<Twitter size={20} />}
-        />
-        <SocialLink
-          href="https://www.instagram.com/___j._.d___/"
-          icon={<Instagram size={20} />}
-        /> */}
-        <SocialLink
-          href="https://www.linkedin.com/in/jaydeep-prajapati-614688214/"
-          icon={<Linkedin size={20} />}
-        />
-        <SocialLink
-          href="https://github.com/JaydeepSP"
-          icon={<Github size={20} />}
-        />
-        <SocialLink
-          href="mailto:jaydeepprajapati456@gmail.com"
-          icon={<Mail size={20} />}
-        />
+        {SOCIAL_LINKS.map(({ href, icon: Icon }) => (
+          <SocialLink key={href} href={href} icon={<Icon size={20} />} />
+        ))}
       </div>
     </section>
   );
