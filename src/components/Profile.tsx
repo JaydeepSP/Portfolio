@@ -1,5 +1,6 @@
 import profile from "../assets/avatar.png";
 import { SOCIAL_LINKS } from "../utils/constant";
+import SocialLink from "./SocialLink";
 import String from "./String";
 
 export function Profile() {
@@ -21,26 +22,14 @@ export function Profile() {
         <p className="text-[20px] leading-[30px] font-medium text-text-primary-light/60 dark:text-text-primary-dark/60 tracking-[-0.4px] max-w-lg">
           I'm a Web Developer.
         </p>
+        {/* Social links */}
         <div className="flex gap-2 relative z-50">
-          {SOCIAL_LINKS.map(({ href, icon: Icon }) => (
-            <SocialLink key={href} href={href} icon={<Icon size={20} />} />
+          {SOCIAL_LINKS.map((link) => (
+            <SocialLink key={link.href} {...link} />
           ))}
         </div>
       </div>
       <String />
     </section>
-  );
-}
-
-function SocialLink({ href, icon }: { href: string; icon: React.ReactNode }) {
-  const isMail = href.startsWith("mailto:");
-  return (
-    <a
-      href={href}
-      target={isMail ? undefined : "_blank"}
-      className="p-2.5 text-text-primary-light dark:text-text-primary-dark bg-white dark:bg-card-bg-dark border border-gray-100 dark:border-gray-800 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 hover:scale-105 transition-all shadow-sm"
-    >
-      {icon}
-    </a>
   );
 }

@@ -33,6 +33,7 @@ export type SocialLink = {
 export type SimpleSocialLink = {
   href: string;
   icon: LucideIcon;
+  color: string;
 };
 
 /* ---------- Testimonial ---------- */

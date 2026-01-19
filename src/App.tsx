@@ -27,7 +27,7 @@ function App() {
         </AnimatePresence>
       </div>
 
-      <footer className="py-8 text-center text-sm text-text-secondary border-t border-gray-200 dark:border-gray-100/50 mt-12">
+      <footer className="py-8 text-center text-sm text-text-secondary border-t border-gray-300 dark:border-gray-100/50 mt-12">
         <p>
           &copy; {new Date().getFullYear()} Jaydeep Prajapati. All rights
           reserved.
