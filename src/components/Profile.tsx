@@ -16,7 +16,7 @@ export function Profile() {
             <div className="space-y-4">
                 <h1 className="text-[25px] leading-[37.5px] font-medium text-text-primary-light dark:text-text-primary-dark tracking-[-0.5px]">Hey, I'm Jaydeep Prajapati.</h1>
                 <p className="text-[20px] leading-[30px] font-medium text-text-primary-light/60 dark:text-text-primary-dark/60 tracking-[-0.4px] max-w-lg">
-                    I'm a Web Developer.
+                    I'm a Web Developer....
                 </p>
             </div>
             <div className="flex gap-2">
