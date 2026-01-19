@@ -130,7 +130,7 @@ export const links: SocialLink[] = [
   {
     name: "GitHub",
     username: "@JaydeepSP",
-    url: "httpls://github.com/JaydeepSP",
+    url: "https://github.com/JaydeepSP",
     icon: Github,
     color: "group-hover:!text-gray-800",
   },
