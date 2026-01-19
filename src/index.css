@@ -7,3 +7,17 @@
     @apply bg-primary-light dark:bg-primary-dark text-text-primary-light dark:text-text-primary-dark font-sans font-medium antialiased transition-colors duration-300;
   }
 }
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 100, 100, 0.4);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-button {
+  display: none !important;
+}
