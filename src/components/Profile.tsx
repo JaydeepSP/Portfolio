@@ -1,5 +1,6 @@
 import profile from "../assets/avatar.png";
 import { SOCIAL_LINKS } from "../utils/constant";
+import String from "./String";
 
 export function Profile() {
   return (
@@ -20,12 +21,13 @@ export function Profile() {
         <p className="text-[20px] leading-[30px] font-medium text-text-primary-light/60 dark:text-text-primary-dark/60 tracking-[-0.4px] max-w-lg">
           I'm a Web Developer.
         </p>
+        <div className="flex gap-2 relative z-50">
+          {SOCIAL_LINKS.map(({ href, icon: Icon }) => (
+            <SocialLink key={href} href={href} icon={<Icon size={20} />} />
+          ))}
+        </div>
       </div>
-      <div className="flex gap-2">
-        {SOCIAL_LINKS.map(({ href, icon: Icon }) => (
-          <SocialLink key={href} href={href} icon={<Icon size={20} />} />
-        ))}
-      </div>
+      <String />
     </section>
   );
 }
