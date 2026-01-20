@@ -17,13 +17,40 @@ function App() {
       <Profile />
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <AnimatePresence mode="wait">
-        {activeTab === "Ventures" && <Ventures key="Ventures" />}
-        {activeTab === "Services" && <Services key="Services" />}
-        {activeTab === "Clients" && <Clients key="Clients" />}
-        {activeTab === "Tech Stack" && <TechStack key="Tech Stack" />}
-        {activeTab === "Connect" && <Connect key="Connect" />}
-      </AnimatePresence>
+      {/* Desktop Tabbed View */}
+      <div className="hidden md:block">
+        <AnimatePresence mode="wait">
+          {activeTab === "Ventures" && <Ventures key="Ventures" />}
+          {activeTab === "Services" && <Services key="Services" />}
+          {activeTab === "Clients" && <Clients key="Clients" />}
+          {activeTab === "Tech Stack" && <TechStack key="Tech Stack" />}
+          {activeTab === "Connect" && <Connect key="Connect" />}
+        </AnimatePresence>
+      </div>
+
+      {/* Mobile Vertical View */}
+      <div className="md:hidden space-y-24">
+        <section id="ventures">
+          <h2 className="text-xl font-bold mb-8 dark:text-white uppercase tracking-wider text-gray-400">Ventures</h2>
+          <Ventures />
+        </section>
+        <section id="services">
+          <h2 className="text-xl font-bold mb-8 dark:text-white uppercase tracking-wider text-gray-400">Services</h2>
+          <Services />
+        </section>
+        <section id="clients">
+          <h2 className="text-xl font-bold mb-8 dark:text-white uppercase tracking-wider text-gray-400">Clients</h2>
+          <Clients />
+        </section>
+        <section id="tech-stack">
+          <h2 className="text-xl font-bold mb-8 dark:text-white uppercase tracking-wider text-gray-400">Tech Stack</h2>
+          <TechStack />
+        </section>
+        <section id="connect">
+          <h2 className="text-xl font-bold mb-8 dark:text-white uppercase tracking-wider text-gray-400">Connect</h2>
+          <Connect />
+        </section>
+      </div>
 
       <footer className="py-8 text-center text-sm text-text-secondary border-t border-gray-300 dark:border-gray-100/50 mt-12">
         <p>

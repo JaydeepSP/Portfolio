@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply scroll-smooth overflow-x-hidden;
+  }
   body {
     @apply bg-primary-light dark:bg-primary-dark text-text-primary-light dark:text-text-primary-dark font-sans font-medium antialiased transition-colors duration-300;
   }
