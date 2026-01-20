@@ -101,7 +101,7 @@ export function Profile() {
                       key={tab}
                       href={`#${tab.toLowerCase().replace(" ", "-")}`}
                       onClick={() => setIsMenuOpen(false)}
-                      className="text-left text-2xl font-semibold text-gray-500 hover:text-black dark:hover:text-[#ff5500] transition-all"
+                      className="text-left text-2xl font-semibold text-gray-800 dark:text-gray-500 hover:text-black dark:hover:text-[#ff5500] transition-all"
                     >
                       {tab}
                     </a>
