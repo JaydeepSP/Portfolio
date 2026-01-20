@@ -28,7 +28,7 @@ export function TechStack() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.05 }}
                   whileHover={{ scale: 1.05 }}
-                  className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-card-bg-dark rounded-full border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-all cursor-pointer"
+                  className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-card-bg-dark rounded-full border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-all cursor-pointer relative z-10"
                 >
                   <div className="text-text-primary-light dark:text-text-primary-dark">
                     <item.icon className="w-4 h-4" />
