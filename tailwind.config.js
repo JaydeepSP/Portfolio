@@ -30,6 +30,10 @@ export default {
       },
       fontWeight: {
          medium: 500,
+      },
+      boxShadow: {
+        'premium': '0 20px 50px rgba(0, 0, 0, 0.05)',
+        'premium-hover': '0 30px 60px rgba(0, 0, 0, 0.1)',
       }
     },
   },

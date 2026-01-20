@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 
 export type Tab =
-  | "Ventures"
-  | "Services"
-  | "Clients"
+  | "Projects"
+  | "Experience"
+  | "Education"
   | "Tech Stack"
   | "Connect";
 
@@ -13,9 +13,9 @@ interface NavbarProps {
 }
 
 export const tabs: Tab[] = [
-  "Ventures",
-  "Services",
-  "Clients",
+  "Projects",
+  "Experience",
+  "Education",
   "Tech Stack",
   "Connect",
 ];
@@ -28,10 +28,11 @@ export function Navbar({ activeTab, setActiveTab }: NavbarProps) {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${activeTab === tab
-              ? "text-white dark:text-white"
-              : "text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark"
-              }`}
+            className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+              activeTab === tab
+                ? "text-white dark:text-white"
+                : "text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark"
+            }`}
           >
             {activeTab === tab && (
               <motion.div

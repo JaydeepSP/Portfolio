@@ -11,8 +11,11 @@ export type TechStackItem = {
 export type Project = {
   title: string;
   description: string;
+  longDescription?: string;
+  features?: string[];
   image: string;
   link: string;
+  tech: string[];
 };
 
 /* ---------- Service ---------- */
@@ -28,6 +31,25 @@ export type SocialLink = {
   url: string;
   icon: LucideIcon;
   color: string;
+};
+
+/* ---------- Experience ---------- */
+export type Experience = {
+  company: string;
+  role: string;
+  duration: string;
+  location: string;
+  type: string;
+  description: string[];
+};
+
+/* ---------- Education ---------- */
+export type Education = {
+  school: string;
+  degree: string;
+  duration: string;
+  location: string;
+  grade: string;
 };
 
 /* ---------- Testimonial ---------- */

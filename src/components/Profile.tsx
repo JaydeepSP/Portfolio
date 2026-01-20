@@ -50,7 +50,7 @@ export function Profile({ activeTab }: ProfileProps) {
           Hey, I'm Jaydeep Prajapati.
         </h1>
         <p className="text-[20px] leading-[30px] font-medium text-text-primary-light/60 dark:text-text-primary-dark/60 tracking-[-0.4px] max-w-lg">
-          I'm a Web Developer.
+          Junior Software Engineer experienced in building responsive, user-focused interfaces with maintainable and scalable code.
         </p>
       </div>
       {/* <String /> */}
