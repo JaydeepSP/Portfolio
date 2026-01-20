@@ -1,5 +1,5 @@
 import { useState } from "react";
-import profile from "@/assets/images/avatar.png";
+import profile from "@/assets/images/avatar-logo.png";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { HamburgerButton } from "@/components/ui/HamburgerButton";
 import { MobileDrawer } from "@/components/ui/MobileDrawer";
