@@ -6,7 +6,7 @@ export function Connect() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="flex flex-col gap-1"
+      className="flex flex-col gap-1 relative z-10"
     >
       {links.map((link, index) => (
         <a

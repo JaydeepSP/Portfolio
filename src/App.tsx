@@ -8,6 +8,7 @@ import { Experience } from "@/components/tabs/Experience";
 import { Education } from "@/components/tabs/Education";
 import { TechStack } from "@/components/tabs/TechStack";
 import { Connect } from "@/components/tabs/Connect";
+import String from "@/components/ui/String";
 
 function App() {
   const [activeTab, setActiveTab] = useState<Tab>("Projects");
@@ -62,7 +63,8 @@ function App() {
         </section>
       </div>
 
-      <footer className="py-8 text-center text-sm text-text-secondary border-t border-gray-300 dark:border-gray-100/50 mt-12">
+      <footer className="py-8 text-center text-sm text-text-secondary mt-12 relative">
+        <String />
         <p>
           &copy; {new Date().getFullYear()} Jaydeep Prajapati. All rights
           reserved.

@@ -90,7 +90,7 @@ const String = (): JSX.Element => {
     <svg
       ref={svgRef}
       height={dimensions.height}
-      className="w-full stroke-gray-300 dark:!stroke-gray-100/50 absolute top-[10.75rem] left-0"
+      className="w-full stroke-gray-300 dark:!stroke-gray-100/50 absolute top-[-126px] left-0"
     >
       <path ref={pathRef} d={initialPath} strokeWidth={1} fill="transparent" />
     </svg>
