@@ -23,6 +23,12 @@ import type {
   Experience,
   Education,
 } from "../types";
+import arcDesk from "@/assets/images/projects/arc-desk.png";
+import languageTranslator from "@/assets/images/projects/language-translator.png";
+import tollgateSystem from "@/assets/images/projects/tollgate-system.png";
+import currencyConvertor from "@/assets/images/projects/currency-convertor.png";
+import qrCode from "@/assets/images/projects/qr-code.png";
+import portfolio from "@/assets/images/projects/portfolio.png";
 
 export const stack: TechStackItem[] = [
   // Frontend
@@ -70,8 +76,7 @@ export const projects: Project[] = [
       "Secure Online Payment Integration",
       "Full Admin Dashboard for CRUD operations",
     ],
-    image:
-      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80",
+    image: arcDesk,
     link: "https://github.com/JaydeepSP",
     tech: ["HTML", "CSS", "Django", "SQLite", "Bootstrap"],
   },
@@ -88,8 +93,7 @@ export const projects: Project[] = [
       "Support for multiple source and target languages",
       "Batch processing capabilities for images",
     ],
-    image:
-      "https://images.unsplash.com/photo-1543165796-5426273ea458?w=800&q=80",
+    image: languageTranslator,
     link: "https://github.com/JaydeepSP",
     tech: ["Python", "OCR", "Pytesseract", "Tkinter"],
   },
@@ -106,8 +110,7 @@ export const projects: Project[] = [
       "LCD Display for transaction feedback",
       "Scalable backend architecture for toll logs",
     ],
-    image:
-      "https://images.unsplash.com/photo-1590231395151-6967cf09a066?w=800&q=80",
+    image: tollgateSystem,
     link: "https://github.com/JaydeepSP/RFID-based-Toll-System",
     tech: ["C++", "IoT", "RFID", "IR Sensors"],
   },
@@ -124,8 +127,7 @@ export const projects: Project[] = [
       "Swap functionality for quick conversions",
       "Modular, reusable component architecture",
     ],
-    image:
-      "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=800&q=80",
+    image: currencyConvertor,
     link: "https://github.com/JaydeepSP/Currency-Converter-React",
     tech: ["HTML", "CSS", "JavaScript", "React.js", "Tailwind CSS"],
   },
@@ -142,31 +144,12 @@ export const projects: Project[] = [
       "Automatic URL detection and redirect options",
       "Lightweight build with minimal dependencies",
     ],
-    image:
-      "https://images.unsplash.com/photo-1595079676339-1534801ad6cf?w=800&q=80",
+    image: qrCode,
     link: "https://github.com/JaydeepSP/QR-Code-Scanner",
     tech: ["JavaScript", "HTML5", "CSS3", "QR API"],
   },
   {
-    title: "Secure Password Generator",
-    description:
-      "A React-based tool for generating secure, customizable passwords with various complexity options.",
-    longDescription:
-      "A developer tool focused on security, allowing users to generate complex passwords based on custom criteria such as length, character sets, and symbols. Features an instant copy-to-clipboard function.",
-    features: [
-      "Customizable password length and complexity",
-      "One-click Copy-to-Clipboard functionality",
-      "Real-time password strength indicators",
-      "State-persistent configuration (locally)",
-      "Dark-mode friendly responsive UI",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
-    link: "https://github.com/JaydeepSP/Password-Generator",
-    tech: ["React.js", "JavaScript", "CSS"],
-  },
-  {
-    title: "Modern Personal Portfolio",
+    title: "Portfolio",
     description:
       "A highly interactive and responsive personal portfolio built with modern web technologies.",
     longDescription:
@@ -178,11 +161,10 @@ export const projects: Project[] = [
       "Glassmorphism and modern UI interactions",
       "Fully responsive and dark-mode compatible",
     ],
-    image:
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+    image: portfolio,
     link: "https://github.com/JaydeepSP/Portfolio",
     tech: [
-      "React 19",
+      "React",
       "TypeScript",
       "Vite",
       "Tailwind CSS",
