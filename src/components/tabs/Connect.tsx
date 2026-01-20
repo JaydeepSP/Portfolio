@@ -6,26 +6,31 @@ export function Connect() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="flex flex-col gap-4"
+      className="flex flex-col gap-1"
     >
       {links.map((link, index) => (
         <a
           key={index}
           href={link.url}
           target="_blank"
-          className="flex items-center gap-6 p-4 bg-white dark:bg-card-bg-dark rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all group"
+          rel="noopener noreferrer"
+          className="flex items-center gap-4 px-4 py-3 -mx-4 rounded-2xl group hover:bg-gray-200 dark:hover:bg-gray-800/50 transition-all duration-200 w-fit"
         >
-          <div
-            className={`p-4 bg-gray-50 dark:bg-gray-900 rounded-2xl text-text-primary-light dark:text-text-primary-dark ${link.color} transition-colors`}
-          >
-            <link.icon size={24} />
+          {/* Icon */}
+          <div className="flex-shrink-0">
+            <link.icon
+              size={20}
+              className={`${link.color} text-text-primary-light dark:text-text-primary-dark`}
+              strokeWidth={1.5}
+            />
           </div>
 
-          <div className="flex flex-col">
-            <span className="text-lg font-bold text-text-primary-light dark:text-text-primary-dark">
+          {/* Platform Name and Handle */}
+          <div className="flex items-baseline gap-2">
+            <span className="font-semibold text-text-primary-light dark:text-text-primary-dark">
               {link.name}
             </span>
-            <span className="text-text-secondary-light dark:text-text-secondary-dark">
+            <span className="text-sm text-text-secondary-light dark:text-text-secondary-dark group-hover:text-text-primary-light dark:group-hover:text-text-primary-dark transition-colors duration-200">
               {link.username}
             </span>
           </div>
