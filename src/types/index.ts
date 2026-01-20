@@ -4,6 +4,7 @@ import type { LucideIcon } from "lucide-react";
 export type TechStackItem = {
   name: string;
   icon: LucideIcon;
+  category: string;
 };
 
 /* ---------- Project ---------- */

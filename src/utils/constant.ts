@@ -27,32 +27,32 @@ import type {
 
 export const stack: TechStackItem[] = [
   // Frontend
-  { name: "HTML", icon: Code },
-  { name: "CSS", icon: PenTool },
-  { name: "JavaScript", icon: Code },
-  { name: "TypeScript", icon: Code },
-  { name: "React.js", icon: Globe },
-  { name: "Next.js", icon: Monitor },
-  { name: "jQuery", icon: Code },
-  { name: "Tailwind CSS", icon: Layout },
-  { name: "Bootstrap", icon: Layout },
+  { name: "HTML", icon: Code, category: "Frontend" },
+  { name: "CSS", icon: PenTool, category: "Frontend" },
+  { name: "JavaScript", icon: Code, category: "Frontend" },
+  { name: "TypeScript", icon: Code, category: "Frontend" },
+  { name: "React.js", icon: Globe, category: "Frontend" },
+  { name: "Next.js", icon: Monitor, category: "Frontend" },
+  { name: "jQuery", icon: Code, category: "Frontend" },
+  { name: "Tailwind CSS", icon: Layout, category: "Frontend" },
+  { name: "Bootstrap", icon: Layout, category: "Frontend" },
 
   // Backend
-  { name: "Node.js", icon: Server },
-  { name: "Python", icon: Cpu },
-  { name: "Java", icon: Cpu },
+  { name: "Node.js", icon: Server, category: "Backend" },
+  { name: "Python", icon: Cpu, category: "Backend" },
+  { name: "Java", icon: Cpu, category: "Backend" },
 
   // Database
-  { name: "MySQL", icon: Database },
-  { name: "MongoDB", icon: Database },
+  { name: "MySQL", icon: Database, category: "Database" },
+  { name: "MongoDB", icon: Database, category: "Database" },
 
   // Tools & Concepts
-  { name: "REST APIs", icon: Globe },
-  { name: "Git", icon: GitBranch },
-  { name: "GitHub", icon: GitBranch },
-  { name: "Postman", icon: Command },
-  { name: "Figma", icon: Figma },
-  { name: "VS Code", icon: Command },
+  { name: "REST APIs", icon: Globe, category: "Tools & Concepts" },
+  { name: "Git", icon: GitBranch, category: "Tools & Concepts" },
+  { name: "GitHub", icon: GitBranch, category: "Tools & Concepts" },
+  { name: "Postman", icon: Command, category: "Tools & Concepts" },
+  { name: "Figma", icon: Figma, category: "Tools & Concepts" },
+  { name: "VS Code", icon: Command, category: "Tools & Concepts" },
 ];
 
 export const projects: Project[] = [
