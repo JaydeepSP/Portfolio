@@ -14,6 +14,7 @@ import {
   Github,
   Mail,
   Twitter,
+  Framer,
   Instagram,
 } from "lucide-react";
 import type {
@@ -54,14 +55,14 @@ export const stack: TechStackItem[] = [
   // Tools & Libraries
   { name: "REST APIs", icon: Globe, category: "Tools & Libraries" },
   { name: "Git", icon: GitBranch, category: "Tools & Libraries" },
-  { name: "GitHub", icon: GitBranch, category: "Tools & Libraries" },
+  { name: "GitHub", icon: Github, category: "Tools & Libraries" },
   { name: "Postman", icon: Command, category: "Tools & Libraries" },
   { name: "Figma", icon: Figma, category: "Tools & Libraries" },
-  { name: "VS Code", icon: Command, category: "Tools & Libraries" },
+  { name: "VS Code", icon: Code, category: "Tools & Libraries" },
   { name: "Canva", icon: PenTool, category: "Tools & Libraries" },
   { name: "Notion", icon: Command, category: "Tools & Libraries" },
   { name: "TanStack Query", icon: Command, category: "Tools & Libraries" },
-  { name: "Framer Motion", icon: Command, category: "Tools & Libraries" },
+  { name: "Framer Motion", icon: Framer, category: "Tools & Libraries" },
   { name: "GSAP", icon: Command, category: "Tools & Libraries" },
 ];
 
