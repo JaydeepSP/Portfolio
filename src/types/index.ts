@@ -30,13 +30,6 @@ export type SocialLink = {
   color: string;
 };
 
-/* ---------- Simple Social Icons (Profile) ---------- */
-export type SimpleSocialLink = {
-  href: string;
-  icon: LucideIcon;
-  color: string;
-};
-
 /* ---------- Testimonial ---------- */
 export type Testimonial = {
   text: string;

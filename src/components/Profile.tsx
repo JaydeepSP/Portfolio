@@ -1,6 +1,4 @@
 import profile from "../assets/images/avatar.png";
-import { SOCIAL_LINKS } from "../utils/constant";
-import SocialLink from "./SocialLink";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Profile() {
@@ -25,12 +23,6 @@ export function Profile() {
         <p className="text-[20px] leading-[30px] font-medium text-text-primary-light/60 dark:text-text-primary-dark/60 tracking-[-0.4px] max-w-lg">
           I'm a Web Developer.
         </p>
-        {/* Social links */}
-        <div className="flex gap-2 relative z-50">
-          {SOCIAL_LINKS.map((link) => (
-            <SocialLink key={link.href} {...link} />
-          ))}
-        </div>
       </div>
       {/* <String /> */}
     </section>

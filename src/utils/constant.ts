@@ -19,7 +19,6 @@ import {
 import type {
   Project,
   Service,
-  SimpleSocialLink,
   SocialLink,
   TechStackItem,
   Testimonial,
@@ -164,33 +163,5 @@ export const testimonials: Testimonial[] = [
     handle: "@elena_rod",
     image:
       "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=faces",
-  },
-];
-
-export const SOCIAL_LINKS: SimpleSocialLink[] = [
-  {
-    href: "https://x.com/JaydeepPra58111",
-    icon: Twitter,
-    color: "hover:!text-blue-400",
-  },
-  {
-    href: "https://www.instagram.com/___j._.d___/",
-    icon: Instagram,
-    color: "hover:!text-pink-500",
-  },
-  {
-    href: "https://www.linkedin.com/in/jaydeep-prajapati-614688214/",
-    icon: Linkedin,
-    color: "hover:!text-blue-700",
-  },
-  {
-    href: "https://github.com/JaydeepSP",
-    icon: Github,
-    color: "hover:!text-gray-800",
-  },
-  {
-    href: "mailto:jaydeepprajapati456@gmail.com",
-    icon: Mail,
-    color: "hover:!text-orange-500",
   },
 ];
