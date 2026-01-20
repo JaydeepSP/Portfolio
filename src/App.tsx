@@ -17,15 +17,13 @@ function App() {
       <Profile />
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <div className="min-h-[400px]">
-        <AnimatePresence mode="wait">
-          {activeTab === "Ventures" && <Ventures key="Ventures" />}
-          {activeTab === "Services" && <Services key="Services" />}
-          {activeTab === "Clients" && <Clients key="Clients" />}
-          {activeTab === "Tech Stack" && <TechStack key="Tech Stack" />}
-          {activeTab === "Connect" && <Connect key="Connect" />}
-        </AnimatePresence>
-      </div>
+      <AnimatePresence mode="wait">
+        {activeTab === "Ventures" && <Ventures key="Ventures" />}
+        {activeTab === "Services" && <Services key="Services" />}
+        {activeTab === "Clients" && <Clients key="Clients" />}
+        {activeTab === "Tech Stack" && <TechStack key="Tech Stack" />}
+        {activeTab === "Connect" && <Connect key="Connect" />}
+      </AnimatePresence>
 
       <footer className="py-8 text-center text-sm text-text-secondary border-t border-gray-300 dark:border-gray-100/50 mt-12">
         <p>
