@@ -14,7 +14,7 @@ function App() {
 
   return (
     <Layout>
-      <Profile />
+      <Profile activeTab={activeTab} />
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {/* Desktop Tabbed View */}

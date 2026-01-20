@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import { GradientBlur } from "./GradientBlur";
-import { SidePatterns } from "./SidePatterns";
+import { GradientBlur } from "./ui/GradientBlur";
+import { SidePatterns } from "./ui/SidePatterns";
 
 interface LayoutProps {
   children: ReactNode;
