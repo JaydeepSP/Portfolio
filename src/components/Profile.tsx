@@ -1,9 +1,9 @@
 import { useState } from "react";
-import profile from "../assets/images/avatar.png";
-import { ThemeToggle } from "./ui/ThemeToggle";
-import { HamburgerButton } from "./ui/HamburgerButton";
-import { MobileDrawer } from "./ui/MobileDrawer";
-import { tabs, type Tab } from "./Navbar";
+import profile from "@/assets/images/avatar.png";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { HamburgerButton } from "@/components/ui/HamburgerButton";
+import { MobileDrawer } from "@/components/ui/MobileDrawer";
+import { tabs, type Tab } from "@/components/Navbar";
 
 interface ProfileProps {
   activeTab: Tab;

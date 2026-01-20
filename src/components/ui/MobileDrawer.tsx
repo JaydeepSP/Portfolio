@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import GlassSurface, { useDarkMode } from "./GlassSurface";
+import GlassSurface, { useDarkMode } from "@/components/ui/GlassSurface";
 
 interface MobileDrawerProps {
     isOpen: boolean;
@@ -68,8 +68,8 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
                                         href={`#${tab.toLowerCase().replace(" ", "-")}`}
                                         onClick={onClose}
                                         className={`text-left text-2xl font-semibold transition-all ${activeTab === tab
-                                                ? "text-black dark:text-[#ff5500] translate-x-2"
-                                                : "text-gray-800 dark:text-gray-500 hover:text-black dark:hover:text-[#ff5500]"
+                                            ? "text-black dark:text-[#ff5500] translate-x-2"
+                                            : "text-gray-800 dark:text-gray-500 hover:text-black dark:hover:text-[#ff5500]"
                                             }`}
                                     >
                                         {tab}

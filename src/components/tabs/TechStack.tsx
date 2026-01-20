@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { stack } from "../../utils/constant";
+import { stack } from "@/utils/constant";
 
 export function TechStack() {
   // Group stack items by category

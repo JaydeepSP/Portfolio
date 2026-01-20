@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
-import { testimonials } from "../../utils/constant";
+import { testimonials } from "@/utils/constant";
 
 export function Clients() {
   return (

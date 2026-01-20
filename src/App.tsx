@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import { Layout } from "./components/Layout";
-import { Profile } from "./components/Profile";
-import { Navbar, type Tab } from "./components/Navbar";
-import { Ventures } from "./components/tabs/Ventures";
-import { Services } from "./components/tabs/Services";
-import { Clients } from "./components/tabs/Clients";
-import { TechStack } from "./components/tabs/TechStack";
-import { Connect } from "./components/tabs/Connect";
+import { Layout } from "@/components/Layout";
+import { Profile } from "@/components/Profile";
+import { Navbar, type Tab } from "@/components/Navbar";
+import { Ventures } from "@/components/tabs/Ventures";
+import { Services } from "@/components/tabs/Services";
+import { Clients } from "@/components/tabs/Clients";
+import { TechStack } from "@/components/tabs/TechStack";
+import { Connect } from "@/components/tabs/Connect";
 
 function App() {
   const [activeTab, setActiveTab] = useState<Tab>("Ventures");

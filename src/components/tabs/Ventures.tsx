@@ -1,6 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { projects } from '../../utils/constant';
+import { projects } from '@/utils/constant';
 
 export function Ventures() {
     return (

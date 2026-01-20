@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { links } from "../../utils/constant";
+import { links } from "@/utils/constant";
 
 export function Connect() {
   return (

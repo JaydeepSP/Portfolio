@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 
-import toggleSound from "../../assets/audio/toggle.wav";
+import toggleSound from "@/assets/audio/toggle.wav";
 
 export function ThemeToggle() {
     const [isDark, setIsDark] = useState(false);
