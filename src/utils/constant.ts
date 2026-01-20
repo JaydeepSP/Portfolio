@@ -51,15 +51,18 @@ export const stack: TechStackItem[] = [
   { name: "MySQL", icon: Database, category: "Database" },
   { name: "MongoDB", icon: Database, category: "Database" },
 
-  // Tools & Concepts
-  { name: "REST APIs", icon: Globe, category: "Tools & Concepts" },
-  { name: "Git", icon: GitBranch, category: "Tools & Concepts" },
-  { name: "GitHub", icon: GitBranch, category: "Tools & Concepts" },
-  { name: "Postman", icon: Command, category: "Tools & Concepts" },
-  { name: "Figma", icon: Figma, category: "Tools & Concepts" },
-  { name: "VS Code", icon: Command, category: "Tools & Concepts" },
-  { name: "Canva", icon: PenTool, category: "Tools & Concepts" },
-  { name: "Notion", icon: Command, category: "Tools & Concepts" },
+  // Tools & Libraries
+  { name: "REST APIs", icon: Globe, category: "Tools & Libraries" },
+  { name: "Git", icon: GitBranch, category: "Tools & Libraries" },
+  { name: "GitHub", icon: GitBranch, category: "Tools & Libraries" },
+  { name: "Postman", icon: Command, category: "Tools & Libraries" },
+  { name: "Figma", icon: Figma, category: "Tools & Libraries" },
+  { name: "VS Code", icon: Command, category: "Tools & Libraries" },
+  { name: "Canva", icon: PenTool, category: "Tools & Libraries" },
+  { name: "Notion", icon: Command, category: "Tools & Libraries" },
+  { name: "TanStack Query", icon: Command, category: "Tools & Libraries" },
+  { name: "Framer Motion", icon: Command, category: "Tools & Libraries" },
+  { name: "GSAP", icon: Command, category: "Tools & Libraries" },
 ];
 
 export const projects: Project[] = [
@@ -77,7 +80,7 @@ export const projects: Project[] = [
       "Full Admin Dashboard for CRUD operations",
     ],
     image: arcDesk,
-    link: "https://github.com/JaydeepSP",
+    link: "https://github.com/JaydeepSP/ARCHITECH_PROJECT",
     tech: ["HTML", "CSS", "Django", "SQLite", "Bootstrap"],
   },
   {
@@ -94,7 +97,7 @@ export const projects: Project[] = [
       "Batch processing capabilities for images",
     ],
     image: languageTranslator,
-    link: "https://github.com/JaydeepSP",
+    link: "https://github.com/JaydeepSP/Language-Detection---AI",
     tech: ["Python", "OCR", "Pytesseract", "Tkinter"],
   },
   {
@@ -129,7 +132,7 @@ export const projects: Project[] = [
     ],
     image: currencyConvertor,
     link: "https://github.com/JaydeepSP/Currency-Converter-React",
-    tech: ["HTML", "CSS", "JavaScript", "React.js", "Tailwind CSS"],
+    tech: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"],
   },
   {
     title: "QR Code Scanner",
