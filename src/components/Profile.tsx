@@ -1,4 +1,4 @@
-import profile from "../assets/avatar.png";
+import profile from "../assets/images/avatar.png";
 import { SOCIAL_LINKS } from "../utils/constant";
 import SocialLink from "./SocialLink";
 import String from "./String";
