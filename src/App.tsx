@@ -7,6 +7,7 @@ import { TechStack } from "@/components/tabs/TechStack";
 import { Connect } from "@/components/tabs/Connect";
 import String from "@/components/ui/String";
 import { SectionHeading } from "./components/ui/SectionHeading";
+import { ScrollToTopButton } from "./components/ui/ScrollToTopButton";
 
 function App() {
   // const [activeTab, setActiveTab] = useState<Tab>("Projects");
@@ -58,6 +59,7 @@ function App() {
           reserved.
         </p>
       </footer>
+      <ScrollToTopButton />
     </Layout>
   );
 }
