@@ -1,18 +1,28 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import profile from "@/assets/images/avatar-logo.png";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { HamburgerButton } from "@/components/ui/HamburgerButton";
-import { MobileDrawer } from "@/components/ui/MobileDrawer";
-import { tabs, type Tab } from "@/components/Navbar";
+import { tabs } from "@/components/Navbar";
+import { links } from "@/utils/constant";
+import { StaggeredMenu, type StaggeredMenuRef } from "@/components/ui/StaggeredMenu";
 
-interface ProfileProps {
-  activeTab: Tab;
-}
-
-export function Profile({ activeTab }: ProfileProps) {
+export function Profile() {
+  const menuRef = useRef<StaggeredMenuRef>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const menuItems = tabs.map(tab => ({
+    label: tab,
+    ariaLabel: `Navigate to ${tab}`,
+    link: `#${tab.toLowerCase().replace(/\s+/g, '-')}`
+  }));
+
+  const socialItems = links.map(link => ({
+    label: link.name,
+    link: link.url
+  }));
+
+  const handleToggleMenu = () => {
+    menuRef.current?.toggle();
+  };
 
   return (
     <section className="flex flex-col items-start gap-6">
@@ -28,22 +38,37 @@ export function Profile({ activeTab }: ProfileProps) {
         </div>
 
         <div className="flex items-center gap-2">
+          {/* Desktop theme toggle */}
           <ThemeToggle />
 
-          <HamburgerButton
-            isOpen={isMenuOpen}
-            onClick={toggleMenu}
-            isFixed={true}
-          />
+          {/* Mobile menu toggle button */}
+          <button
+            onClick={handleToggleMenu}
+            type="button"
+            className="md:hidden inline-flex items-center gap-2 text-sm font-semibold text-text-primary-light dark:text-text-primary-dark"
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMenuOpen}
+          >
+            <span className="uppercase">Menu</span>
+            <span className="text-lg">{isMenuOpen ? '×' : '+'}</span>
+          </button>
         </div>
       </div>
 
-      <MobileDrawer
-        isOpen={isMenuOpen}
-        onClose={() => setIsMenuOpen(false)}
-        activeTab={activeTab}
-        tabs={tabs}
-      />
+      {/* Staggered Menu - positioned fixed to overlay */}
+      <div className="md:hidden fixed inset-0 z-50 pointer-events-none">
+        <StaggeredMenu
+          ref={menuRef}
+          items={menuItems}
+          socialItems={socialItems}
+          accentColor="#ff5500"
+          colors={['#171717', '#252525']}
+          isFixed={true}
+          renderToggleButton={() => null}
+          onMenuOpen={() => setIsMenuOpen(true)}
+          onMenuClose={() => setIsMenuOpen(false)}
+        />
+      </div>
 
       <div className="space-y-4">
         <h1 className="text-[25px] leading-[37.5px] font-medium text-text-primary-light dark:text-text-primary-dark tracking-[-0.5px]">
