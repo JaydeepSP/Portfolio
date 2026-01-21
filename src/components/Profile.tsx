@@ -3,21 +3,24 @@ import profile from "@/assets/images/avatar-logo.png";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { tabs } from "@/components/Navbar";
 import { links } from "@/utils/constant";
-import { StaggeredMenu, type StaggeredMenuRef } from "@/components/ui/StaggeredMenu";
+import {
+  StaggeredMenu,
+  type StaggeredMenuRef,
+} from "@/components/ui/StaggeredMenu";
 
 export function Profile() {
   const menuRef = useRef<StaggeredMenuRef>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuItems = tabs.map(tab => ({
+  const menuItems = tabs.map((tab) => ({
     label: tab,
     ariaLabel: `Navigate to ${tab}`,
-    link: `#${tab.toLowerCase().replace(/\s+/g, '-')}`
+    link: `#${tab.toLowerCase().replace(/\s+/g, "-")}`,
   }));
 
-  const socialItems = links.map(link => ({
+  const socialItems = links.map((link) => ({
     label: link.name,
-    link: link.url
+    link: link.url,
   }));
 
   const handleToggleMenu = () => {
@@ -45,24 +48,24 @@ export function Profile() {
           <button
             onClick={handleToggleMenu}
             type="button"
-            className="md:hidden inline-flex items-center gap-2 text-sm font-semibold text-text-primary-light dark:text-text-primary-dark"
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-text-primary-light dark:text-text-primary-dark hover:text-[#ff5500] dark:hover:text-[#ff5500] transition-all duration-300 ease-in-out "
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >
             <span className="uppercase">Menu</span>
-            <span className="text-lg">{isMenuOpen ? '×' : '+'}</span>
+            <span className="text-lg">+</span>
           </button>
         </div>
       </div>
 
       {/* Staggered Menu - positioned fixed to overlay */}
-      <div className="md:hidden fixed inset-0 z-50 pointer-events-none">
+      <div className="fixed inset-0 z-50 pointer-events-none">
         <StaggeredMenu
           ref={menuRef}
           items={menuItems}
           socialItems={socialItems}
           accentColor="#ff5500"
-          colors={['#171717', '#252525']}
+          colors={["#171717", "#252525"]}
           isFixed={true}
           renderToggleButton={() => null}
           onMenuOpen={() => setIsMenuOpen(true)}

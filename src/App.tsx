@@ -1,25 +1,23 @@
-import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
 import { Layout } from "@/components/Layout";
 import { Profile } from "@/components/Profile";
-import { Navbar, type Tab } from "@/components/Navbar";
 import { Projects } from "@/components/tabs/Projects";
 import { Experience } from "@/components/tabs/Experience";
 import { Education } from "@/components/tabs/Education";
 import { TechStack } from "@/components/tabs/TechStack";
 import { Connect } from "@/components/tabs/Connect";
 import String from "@/components/ui/String";
+import { SectionHeading } from "./components/ui/SectionHeading";
 
 function App() {
-  const [activeTab, setActiveTab] = useState<Tab>("Projects");
+  // const [activeTab, setActiveTab] = useState<Tab>("Projects");
 
   return (
     <Layout>
       <Profile />
-      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+      {/* <Navbar activeTab={activeTab} setActiveTab={setActiveTab} /> */}
 
       {/* Desktop Tabbed View */}
-      <div className="hidden md:block">
+      {/* <div className="hidden md:block">
         <AnimatePresence mode="wait">
           {activeTab === "Projects" && <Projects key="Projects" />}
           {activeTab === "Experience" && <Experience key="Experience" />}
@@ -27,38 +25,28 @@ function App() {
           {activeTab === "Tech Stack" && <TechStack key="Tech Stack" />}
           {activeTab === "Connect" && <Connect key="Connect" />}
         </AnimatePresence>
-      </div>
+      </div> */}
 
       {/* Mobile Vertical View */}
-      <div className="md:hidden space-y-24">
+      <div className="space-y-24">
         <section id="projects">
-          <h2 className="text-xl font-bold mb-8 dark:text-white uppercase tracking-wider text-gray-400">
-            Projects
-          </h2>
+          <SectionHeading title="Projects" />
           <Projects />
         </section>
         <section id="experience">
-          <h2 className="text-xl font-bold mb-8 dark:text-white uppercase tracking-wider text-gray-400">
-            Experience
-          </h2>
+          <SectionHeading title="Experience" />
           <Experience />
         </section>
         <section id="education">
-          <h2 className="text-xl font-bold mb-8 dark:text-white uppercase tracking-wider text-gray-400">
-            Education
-          </h2>
+          <SectionHeading title="Education" />
           <Education />
         </section>
         <section id="tech-stack">
-          <h2 className="text-xl font-bold mb-8 dark:text-white uppercase tracking-wider text-gray-400">
-            Tech Stack
-          </h2>
+          <SectionHeading title="Tech Stack" />
           <TechStack />
         </section>
         <section id="connect">
-          <h2 className="text-xl font-bold mb-8 dark:text-white uppercase tracking-wider text-gray-400">
-            Connect
-          </h2>
+          <SectionHeading title="Connect" />
           <Connect />
         </section>
       </div>
