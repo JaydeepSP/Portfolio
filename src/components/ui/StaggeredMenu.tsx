@@ -443,11 +443,10 @@ export const StaggeredMenu = forwardRef<StaggeredMenuRef, StaggeredMenuProps>(
 
     return (
       <div
-        className={`sm-scope z-[100] ${
-          isFixed || open
+        className={`sm-scope z-[100] ${isFixed || open
             ? "fixed inset-0 w-screen h-screen overflow-hidden"
             : "relative"
-        }`}
+          }`}
       >
         <div
           className={
@@ -509,7 +508,6 @@ export const StaggeredMenu = forwardRef<StaggeredMenuRef, StaggeredMenuProps>(
             className="staggered-menu-panel absolute top-0 right-0 h-full bg-white dark:bg-[#0a0a0a] flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-10 backdrop-blur-[12px] pointer-events-auto"
             style={{
               WebkitBackdropFilter: "blur(12px)",
-              visibility: open ? "visible" : "hidden",
             }}
             aria-hidden={!open}
           >
@@ -521,10 +519,43 @@ export const StaggeredMenu = forwardRef<StaggeredMenuRef, StaggeredMenuProps>(
                 closeMenu();
               }}
               type="button"
-              className="sm-panel-close absolute top-8 right-8 w-10 h-10 flex items-center justify-center text-2xl font-light text-black dark:text-white hover:text-[#ff5500] dark:hover:text-[#ff5500] transition-colors duration-200 z-50 cursor-pointer"
+              className="group !absolute top-8 right-8 inline-flex items-center gap-[0.3rem] text-sm font-semibold text-black dark:text-white hover:text-[#ff5500] dark:hover:text-[#ff5500] transition-colors duration-300 ease-in-out cursor-pointer overflow-visible z-50"
               aria-label="Close menu"
             >
-              ×
+              <span className="relative inline-block h-[1em] overflow-hidden whitespace-nowrap w-auto">
+                <span
+                  className="flex flex-col leading-none transition-transform duration-[500ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  style={{
+                    transform: open ? "translateY(-50%)" : "translateY(0)",
+                  }}
+                >
+                  <span className="block h-[1em] leading-none uppercase">
+                    Menu
+                  </span>
+                  <span className="block h-[1em] leading-none uppercase">
+                    Close
+                  </span>
+                </span>
+              </span>
+
+              <span className="relative w-[14px] h-[14px] shrink-0 inline-flex items-center justify-center -translate-y-[1px]">
+                <span
+                  className="absolute left-1/2 top-1/2 w-full h-[2px] bg-current rounded-[2px] transition-transform duration-[500ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  style={{
+                    transform: open
+                      ? "translate(-50%, -50%) rotate(45deg)"
+                      : "translate(-50%, -50%) rotate(0deg)",
+                  }}
+                />
+                <span
+                  className="absolute left-1/2 top-1/2 w-full h-[2px] bg-current rounded-[2px] transition-transform duration-[500ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  style={{
+                    transform: open
+                      ? "translate(-50%, -50%) rotate(-45deg)"
+                      : "translate(-50%, -50%) rotate(90deg)",
+                  }}
+                />
+              </span>
             </button>
 
             <div className="sm-panel-inner flex-1 flex flex-col gap-5">

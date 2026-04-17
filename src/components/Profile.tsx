@@ -48,12 +48,44 @@ export function Profile() {
           <button
             onClick={handleToggleMenu}
             type="button"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-text-primary-light dark:text-text-primary-dark hover:text-[#ff5500] dark:hover:text-[#ff5500] transition-all duration-300 ease-in-out "
+            className="sm-scope sm-toggle group inline-flex items-center gap-[0.3rem] text-sm font-semibold text-text-primary-light dark:text-text-primary-dark hover:text-[#ff5500] dark:hover:text-[#ff5500] transition-colors duration-300 ease-in-out cursor-pointer overflow-visible"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >
-            <span className="uppercase">Menu</span>
-            <span className="text-lg">+</span>
+            <span className="relative inline-block h-[1em] overflow-hidden whitespace-nowrap w-auto">
+              <span
+                className="flex flex-col leading-none transition-transform duration-[500ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+                style={{
+                  transform: isMenuOpen ? "translateY(-50%)" : "translateY(0)",
+                }}
+              >
+                <span className="block h-[1em] leading-none uppercase">
+                  Menu
+                </span>
+                <span className="block h-[1em] leading-none uppercase">
+                  Close
+                </span>
+              </span>
+            </span>
+
+            <span className="relative w-[14px] h-[14px] shrink-0 inline-flex items-center justify-center -translate-y-[1px]">
+              <span
+                className="absolute left-1/2 top-1/2 w-full h-[2px] bg-current rounded-[2px] transition-transform duration-[500ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+                style={{
+                  transform: isMenuOpen
+                    ? "translate(-50%, -50%) rotate(45deg)"
+                    : "translate(-50%, -50%) rotate(0deg)",
+                }}
+              />
+              <span
+                className="absolute left-1/2 top-1/2 w-full h-[2px] bg-current rounded-[2px] transition-transform duration-[500ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+                style={{
+                  transform: isMenuOpen
+                    ? "translate(-50%, -50%) rotate(-45deg)"
+                    : "translate(-50%, -50%) rotate(90deg)",
+                }}
+              />
+            </span>
           </button>
         </div>
       </div>
