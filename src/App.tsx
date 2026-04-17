@@ -28,7 +28,7 @@ function App() {
       </div> */}
 
       {/* Main Content Sections - Added padding back here since Layout is now full-screen */}
-      <div className="space-y-24 px-6 md:px-12">
+      <div className="space-y-24 px-6 pt-4 md:px-12">
         <section id="projects">
           <SectionHeading title="Projects" />
           <Projects />
