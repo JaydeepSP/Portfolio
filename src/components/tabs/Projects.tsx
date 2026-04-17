@@ -9,8 +9,7 @@ export function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleProjectClick = (e: React.MouseEvent, project: Project) => {
-    e.preventDefault();
+  const handleProjectClick = (project: Project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
   };
@@ -18,69 +17,52 @@ export function Projects() {
   return (
     <>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="flex flex-col"
       >
         {projects.map((project, index) => (
-          <motion.a
+          <motion.div
             key={index}
-            href={project.link}
-            onClick={(e) => handleProjectClick(e, project)}
-            whileHover={{ y: -8 }}
-            className="group relative flex flex-col bg-white/40 dark:bg-[#171717]/40 backdrop-blur-xl rounded-[2.5rem] overflow-hidden border border-white/20 dark:border-white/5 shadow-premium hover:shadow-premium-hover transition-all duration-500"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.06 }}
+            onClick={() => handleProjectClick(project)}
+            className="group flex items-start justify-between gap-6 py-5 border-b border-gray-100 dark:border-white/5 cursor-pointer hover:bg-gray-50 dark:hover:bg-white/[0.02] -mx-4 px-4 rounded-xl transition-colors duration-200"
           >
-            {/* Image Container */}
-            <div className="relative w-full h-64 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-t from-white/80 dark:from-[#171717]/80 to-transparent z-10 opacity-60" />
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700 ease-out"
-              />
-
-              {/* Hover Link Icon */}
-              <div className="absolute top-6 right-6 z-20 w-12 h-12 bg-black dark:bg-[#ff5500] rounded-full flex items-center justify-center translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg">
-                <ArrowUpRight size={22} className="text-white" />
-              </div>
-            </div>
-
-            {/* Content Section */}
-            <div className="flex-1 p-8 pt-2 relative z-20">
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-text-primary-light dark:text-text-primary-dark tracking-tight transition-colors group-hover:text-black dark:group-hover:text-[#ff5500]">
+            {/* Left: index + title + description */}
+            <div className="flex items-start gap-5 min-w-0">
+              <span className="text-xs font-black text-gray-300 dark:text-white/20 tabular-nums pt-1 shrink-0 w-5">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div className="min-w-0">
+                <h3 className="text-base font-semibold text-gray-900 dark:text-white tracking-tight group-hover:text-[#ff5500] dark:group-hover:text-[#ff5500] transition-colors duration-200">
                   {project.title}
                 </h3>
-
-                <p className="text-[17px] leading-relaxed text-text-secondary-light/80 dark:text-text-secondary-dark/80 font-medium line-clamp-2">
+                <p className="text-sm text-gray-400 dark:text-white/35 mt-0.5 line-clamp-1 font-medium">
                   {project.description}
                 </p>
-
-                <div className="mt-8 flex items-center gap-2 text-base font-bold text-text-primary-light dark:text-text-primary-dark group-hover:gap-3 transition-all">
-                  View on GitHub{" "}
-                  <ArrowUpRight
-                    size={20}
-                    className="group-hover:-translate-y-0.5 transition-transform"
-                  />
-                </div>
-
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-4 py-1.5 text-[11px] uppercase tracking-widest font-bold rounded-full bg-black/5 dark:bg-white/5 text-text-secondary-light dark:text-text-secondary-dark border border-transparent group-hover:border-black/10 dark:group-hover:border-white/10 transition-all duration-300"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
               </div>
-
-              {/* Subtle decorative line */}
-              <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             </div>
-          </motion.a>
+
+            {/* Right: tech tags + arrow */}
+            <div className="flex items-center gap-3 shrink-0">
+              <div className="hidden sm:flex items-center gap-1.5">
+                {project.tech.slice(0, 3).map((tech, i) => (
+                  <span
+                    key={i}
+                    className="inline-flex items-center gap-[5px] px-2.5 py-1 text-[11px] font-semibold rounded-full border border-gray-300 dark:border-white/10 bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-white/60"
+                  >
+                    <span className="w-[6px] h-[6px] rounded-full shrink-0" style={{ background: `hsl(${(i * 60 + 200) % 360}, 70%, 55%)` }} />
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <div className="w-8 h-8 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:border-[#ff5500] group-hover:text-[#ff5500] transition-all duration-200">
+                <ArrowUpRight size={14} />
+              </div>
+            </div>
+          </motion.div>
         ))}
       </motion.div>
 

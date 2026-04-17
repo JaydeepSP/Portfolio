@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Github } from "lucide-react";
+import { X, ArrowUpRight } from "lucide-react";
 import type { Project } from "@/types";
 
 interface ProjectModalProps {
@@ -9,125 +9,115 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
-  if (!project) return null;
-
   return (
     <AnimatePresence>
-      {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+      {isOpen && project && (
+        <div className="fixed inset-0 z-[200] flex justify-end">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/60 backdrop-blur-md"
+            className="absolute inset-0 bg-black/30 backdrop-blur-sm"
           />
 
-          {/* Modal Content */}
+          {/* Side Drawer */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-[#171717] rounded-[2.5rem] shadow-2xl border border-white/20 dark:border-white/5 flex flex-col"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", damping: 32, stiffness: 320 }}
+            className="relative w-full max-w-lg h-full bg-white dark:bg-[#0f0f0f] border-l border-gray-100 dark:border-white/5 flex flex-col shadow-2xl overflow-hidden"
           >
-            {/* Fixed Close Button Container */}
-            <div className="absolute top-6 right-6 z-[110]">
+            {/* Header */}
+            <div className="flex items-center justify-between px-8 pt-8 pb-6 border-b border-gray-100 dark:border-white/5 shrink-0">
+              <div className="flex flex-wrap gap-1.5">
+                {project.tech.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="inline-flex items-center gap-[5px] px-2.5 py-1 text-[11px] font-semibold rounded-full border border-gray-300 dark:border-white/10 bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-white/60"
+                  >
+                    <span
+                      className="w-[6px] h-[6px] rounded-full shrink-0"
+                      style={{ background: `hsl(${(i * 60 + 200) % 360}, 70%, 55%)` }}
+                    />
+                    {tech}
+                  </span>
+                ))}
+              </div>
               <button
                 onClick={onClose}
-                className="p-2 rounded-full bg-black/5 dark:bg-white/10 backdrop-blur-md hover:bg-black/10 dark:hover:bg-white/20 transition-all border border-black/5 dark:border-white/10 shadow-lg group"
+                className="w-8 h-8 rounded-full flex items-center justify-center border border-gray-200 dark:border-white/10 hover:border-gray-400 dark:hover:border-white/30 transition-colors duration-150 shrink-0 ml-4"
+                aria-label="Close"
               >
-                <X
-                  size={24}
-                  className="text-text-primary-light dark:text-text-primary-dark group-hover:scale-110 transition-transform"
-                />
+                <X size={14} className="text-gray-500 dark:text-white/50" />
               </button>
             </div>
 
-            {/* Scrollable Content Area */}
-            <div className="flex-1 overflow-y-auto no-scrollbar rounded-[2.5rem]">
-              <div className="flex flex-col">
-                {/* Hero Image */}
-                <div className="relative w-full h-[350px] md:h-[500px] shrink-0">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#171717] via-transparent to-transparent" />
-                </div>
-
-                {/* Content Body */}
-                <div className="p-8 md:p-14 -mt-24 relative z-10">
-                  <div className="space-y-12">
-                    <div className="space-y-6">
-                      <h2 className="text-4xl md:text-6xl font-black text-text-primary-light dark:text-text-primary-dark tracking-tighter leading-none">
-                        {project.title}
-                      </h2>
-
-                      <div className="flex flex-wrap gap-2.5">
-                        {project.tech.map((tech, i) => (
-                          <span
-                            key={i}
-                            className="px-5 py-2 text-[12px] uppercase tracking-[0.2em] font-black rounded-full bg-black/5 dark:bg-white/5 text-text-secondary-light dark:text-text-secondary-dark border border-black/5 dark:border-white/5"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-12">
-                      {/* Left Column: Description */}
-                      <div className="md:col-span-2 space-y-6">
-                        <h3 className="text-xs font-black dark:text-[#ff5500] uppercase tracking-[0.3em] text-gray-500">
-                          Project Overview
-                        </h3>
-                        <p className="text-xl md:text-2xl leading-relaxed text-text-primary-light dark:text-text-primary-dark font-medium opacity-90">
-                          {project.longDescription || project.description}
-                        </p>
-                      </div>
-
-                      {/* Right Column: Key Features */}
-                      {project.features && (
-                        <div className="space-y-6">
-                          <h3 className="text-xs font-black dark:text-[#ff5500] uppercase tracking-[0.2em] text-gray-500">
-                            Key Features
-                          </h3>
-                          <ul className="space-y-4">
-                            {project.features.map((feature, i) => (
-                              <li
-                                key={i}
-                                className="flex gap-4 text-text-secondary-light dark:text-text-secondary-dark font-semibold"
-                              >
-                                <div className="mt-2 w-1.5 h-1.5 rounded-full bg-black/20 dark:bg-[#ff5500] shrink-0" />
-                                <span className="text-[15px] leading-tight">
-                                  {feature}
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Action CTA */}
-                    <div className="pt-6 border-t border-black/5 dark:border-white/5 flex flex-wrap items-center justify-between gap-6">
-                      <div className="flex flex-wrap gap-4">
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-3 px-10 py-5 bg-black dark:bg-[#ff5500] text-white rounded-2xl font-black uppercase tracking-widest text-sm hover:translate-y-[-4px] transition-all dark:shadow-[0_10px_30px_rgba(255,85,0,0.3)] active:scale-95"
-                        >
-                          <Github size={20} />
-                          Explore Codebase
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            {/* Scrollable Body */}
+            <div className="flex-1 overflow-y-auto">
+              {/* Project Image */}
+              <div className="relative w-full aspect-video overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#0f0f0f] to-transparent" />
               </div>
+
+              <div className="px-8 pb-10 -mt-12 relative z-10 space-y-8">
+                {/* Title */}
+                <div>
+                  <h2 className="text-3xl font-black text-gray-900 dark:text-white tracking-tight leading-tight">
+                    {project.title}
+                  </h2>
+                </div>
+
+                {/* Overview */}
+                <div className="space-y-3">
+                  <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#ff5500]">
+                    Overview
+                  </span>
+                  <p className="text-base leading-relaxed text-gray-500 dark:text-white/50 font-medium">
+                    {project.longDescription || project.description}
+                  </p>
+                </div>
+
+                {/* Features */}
+                {project.features && (
+                  <div className="space-y-3">
+                    <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#ff5500]">
+                      Key Features
+                    </span>
+                    <ul className="space-y-2.5">
+                      {project.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <span className="mt-2 w-1 h-1 rounded-full bg-[#ff5500] shrink-0" />
+                          <span className="text-sm text-gray-500 dark:text-white/45 font-medium leading-relaxed">
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Footer CTA */}
+            <div className="px-8 py-6 border-t border-gray-100 dark:border-white/5 shrink-0">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full py-3.5 bg-gray-900 dark:bg-white/5 hover:bg-[#ff5500] dark:hover:bg-[#ff5500] text-white rounded-xl font-bold text-sm uppercase tracking-widest transition-colors duration-200 group"
+              >
+                View on GitHub
+                <ArrowUpRight size={16} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform duration-150" />
+              </a>
             </div>
           </motion.div>
         </div>
