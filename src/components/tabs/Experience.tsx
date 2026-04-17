@@ -1,28 +1,71 @@
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { experiences } from "@/utils/constant";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function Experience() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    if (!lineRef.current) return;
+
+    gsap.fromTo(
+      lineRef.current,
+      { scaleY: 0 },
+      {
+        scaleY: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          end: "bottom 80%",
+          scrub: 1.5, // Smooth "floaty" feel
+        },
+      }
+    );
+  }, { scope: containerRef });
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="relative"
+      ref={containerRef}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ }}
+      className="relative origin-top"
     >
-      {/* Vertical timeline line */}
-      <div className="absolute left-[5px] top-2 bottom-2 w-px bg-gray-100 dark:bg-white/5" />
+      {/* Vertical timeline line container */}
+      <div className="absolute left-[5px] top-2 bottom-2 w-[1px] bg-gray-100 dark:bg-white/5 origin-top overflow-hidden">
+        {/* The actual animated line */}
+        <div 
+          ref={lineRef}
+          className="w-full h-full bg-[#ff5500] origin-top"
+        />
+      </div>
 
       <div className="flex flex-col gap-10">
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ margin: "-40px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="relative pl-9"
           >
             {/* Timeline dot */}
             <div className="absolute left-0 top-[6px] flex items-center justify-center">
-              <div className="w-[11px] h-[11px] rounded-full border-2 border-[#ff5500] bg-white dark:bg-[#0a0a0a]" />
+              <motion.div 
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ }}
+                transition={{ type: "spring", damping: 12, stiffness: 200, delay: 0.2 }}
+                className="w-[11px] h-[11px] rounded-full border-2 border-[#ff5500] bg-white dark:bg-[#0a0a0a] z-10" 
+              />
             </div>
 
             {/* Duration badge */}
