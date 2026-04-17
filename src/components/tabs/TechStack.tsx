@@ -1,46 +1,78 @@
 import { motion } from "framer-motion";
 import { stack } from "@/utils/constant";
 
+// Assign a unique accent color per category
+const categoryColors: Record<string, string> = {
+  Frontend: "#3b82f6",       // blue
+  Backend: "#f97316",        // orange
+  Database: "#22c55e",       // green
+  "Tools & Libraries": "#a855f7", // purple
+};
+
+// Assign per-item dot colors to add variety (cycles through a palette)
+const dotPalette = [
+  "#3b82f6", "#f97316", "#22c55e", "#a855f7",
+  "#ec4899", "#14b8a6", "#eab308", "#ef4444",
+];
+
 export function TechStack() {
-  // Group stack items by category
   const categories = Array.from(
-    new Set(stack.map((item) => item.category || "Other")),
+    new Set(stack.map((item) => item.category || "Other"))
   );
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="space-y-8"
+      className="flex flex-col divide-y divide-gray-200 dark:divide-white/5"
     >
-      {categories.map((category) => (
-        <div key={category}>
-          <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">
-            {category}
-          </h3>
-          <div className="flex flex-wrap gap-3">
-            {stack
-              .filter((item) => (item.category || "Other") === category)
-              .map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-card-bg-dark rounded-full border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-all cursor-pointer"
-                >
-                  <div className="text-text-primary-light dark:text-text-primary-dark">
-                    <item.icon className="w-4 h-4" />
-                  </div>
-                  <span className="font-medium text-sm text-text-primary-light dark:text-text-primary-dark">
+      {categories.map((category, catIdx) => {
+        const items = stack.filter(
+          (item) => (item.category || "Other") === category
+        );
+        const accentColor = categoryColors[category] ?? "#6b7280";
+
+        return (
+          <motion.div
+            key={category}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: catIdx * 0.08 }}
+            className="flex items-start gap-6 py-5"
+          >
+            {/* Category label */}
+            <span
+              className="text-xs font-black uppercase tracking-[0.15em] w-28 shrink-0 pt-[6px]"
+              style={{ color: accentColor }}
+            >
+              {category}
+            </span>
+
+            {/* Pills */}
+            <div className="flex flex-wrap gap-2">
+              {items.map((item, idx) => {
+                const dotColor = dotPalette[(catIdx * 4 + idx) % dotPalette.length];
+                return (
+                  <motion.span
+                    key={item.name}
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: catIdx * 0.08 + idx * 0.04 }}
+                    whileHover={{ scale: 1.05 }}
+                    className="inline-flex items-center gap-[6px] px-3 py-[5px] rounded-full border border-gray-300 dark:border-white/10 bg-gray-100 dark:bg-white/5 text-sm font-semibold text-gray-700 dark:text-white/85 cursor-default select-none transition-colors hover:border-gray-400 dark:hover:border-white/20 hover:bg-gray-200 dark:hover:bg-white/10"
+                  >
+                    <span
+                      className="w-[7px] h-[7px] rounded-full shrink-0"
+                      style={{ background: dotColor }}
+                    />
                     {item.name}
-                  </span>
-                </motion.div>
-              ))}
-          </div>
-        </div>
-      ))}
+                  </motion.span>
+                );
+              })}
+            </div>
+          </motion.div>
+        );
+      })}
     </motion.div>
   );
 }
