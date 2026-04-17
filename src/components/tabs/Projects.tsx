@@ -5,6 +5,19 @@ import { projects } from "@/utils/constant";
 import { ProjectModal } from "@/components/ui/ProjectModal";
 import type { Project } from "@/types";
 
+const DOT_COLORS = [
+  "#3b82f6", // blue
+  "#f97316", // orange
+  "#22c55e", // green
+  "#a855f7", // purple
+  "#ec4899", // pink
+  "#14b8a6", // teal
+  "#eab308", // yellow
+  "#ef4444", // red
+  "#6366f1", // indigo
+  "#f43f5e", // rose
+];
+
 export function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -53,7 +66,7 @@ export function Projects() {
                     key={i}
                     className="inline-flex items-center gap-[5px] px-2.5 py-1 text-[11px] font-semibold rounded-full border border-gray-300 dark:border-white/10 bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-white/60"
                   >
-                    <span className="w-[6px] h-[6px] rounded-full shrink-0" style={{ background: `hsl(${(i * 60 + 200) % 360}, 70%, 55%)` }} />
+                    <span className="w-[6px] h-[6px] rounded-full shrink-0" style={{ background: DOT_COLORS[i % DOT_COLORS.length] }} />
                     {tech}
                   </span>
                 ))}

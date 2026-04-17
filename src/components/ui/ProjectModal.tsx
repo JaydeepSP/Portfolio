@@ -2,6 +2,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowUpRight } from "lucide-react";
 import type { Project } from "@/types";
 
+const DOT_COLORS = [
+  "#3b82f6", // blue
+  "#f97316", // orange
+  "#22c55e", // green
+  "#a855f7", // purple
+  "#ec4899", // pink
+  "#14b8a6", // teal
+  "#eab308", // yellow
+  "#ef4444", // red
+  "#6366f1", // indigo
+  "#f43f5e", // rose
+];
+
 interface ProjectModalProps {
   project: Project | null;
   isOpen: boolean;
@@ -41,7 +54,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                   >
                     <span
                       className="w-[6px] h-[6px] rounded-full shrink-0"
-                      style={{ background: `hsl(${(i * 60 + 200) % 360}, 70%, 55%)` }}
+                      style={{ background: DOT_COLORS[i % DOT_COLORS.length] }}
                     />
                     {tech}
                   </span>
