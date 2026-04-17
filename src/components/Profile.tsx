@@ -90,6 +90,21 @@ export function Profile() {
         </div>
       </div>
 
+      {/* Background blur overlay when menu is open */}
+      <div
+        className={`fixed inset-0 z-[40] transition-all duration-500 ease-in-out ${
+          isMenuOpen
+            ? "bg-black/40 backdrop-blur-sm opacity-100 pointer-events-auto"
+            : "bg-transparent backdrop-blur-none opacity-0 pointer-events-none"
+        }`}
+        onClick={() => {
+          if (isMenuOpen) {
+            handleToggleMenu();
+          }
+        }}
+        aria-hidden="true"
+      />
+
       {/* Staggered Menu - positioned fixed to overlay */}
       <div className="fixed inset-0 z-50 pointer-events-none">
         <StaggeredMenu

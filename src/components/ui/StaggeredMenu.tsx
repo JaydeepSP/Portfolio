@@ -505,7 +505,7 @@ export const StaggeredMenu = forwardRef<StaggeredMenuRef, StaggeredMenuProps>(
           <aside
             id="staggered-menu-panel"
             ref={panelRef}
-            className="staggered-menu-panel absolute top-0 right-0 h-full bg-white dark:bg-[#0a0a0a] flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-10 backdrop-blur-[12px] pointer-events-auto"
+            className="staggered-menu-panel absolute top-0 right-0 h-full bg-white dark:bg-[#0a0a0a] flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-10 backdrop-blur-sm pointer-events-auto"
             style={{
               WebkitBackdropFilter: "blur(12px)",
             }}
