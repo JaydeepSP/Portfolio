@@ -44,6 +44,57 @@
   }
 }
 
+/* Grain / Noise Overlay - Balanced for both themes */
+.noise-overlay {
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent url('http://assets.iceablethemes.com/img/noise-transparent.png') repeat 0 0;
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: 1000;
+  animation: noise 1s steps(10) infinite;
+}
+
+.dark .noise-overlay {
+  opacity: 0.04;
+}
+
+@keyframes noise {
+  0%, 100% { transform:translate(0, 0) }
+  10% { transform:translate(-5%, -10%) }
+  20% { transform:translate(-15%, 5%) }
+  30% { transform:translate(7%, -25%) }
+  40% { transform:translate(-5%, 25%) }
+  50% { transform:translate(-15%, 10%) }
+  60% { transform:translate(15%, 0%) }
+  70% { transform:translate(0%, 15%) }
+  80% { transform:translate(3%, 35%) }
+  90% { transform:translate(-10%, 10%) }
+}
+
+.spotlight {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+    circle 1000px at var(--mouse-x) var(--mouse-y),
+    rgba(255, 85, 0, 0.02),
+    transparent 80%
+  );
+  transition: opacity 0.5s ease;
+}
+
+.dark .spotlight {
+  background: radial-gradient(
+    circle 1000px at var(--mouse-x) var(--mouse-y),
+    rgba(255, 85, 0, 0.04),
+    transparent 80%
+  );
+}
+
 /* Custom Scrollbar - Only for Desktop */
 @media (min-width: 1024px) {
   ::-webkit-scrollbar {

@@ -1,6 +1,5 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { useLenis } from "lenis/react";
 import profile from "@/assets/images/avatar-logo.png";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { tabs } from "@/components/Navbar";
@@ -13,26 +12,6 @@ import {
 export function Profile() {
   const menuRef = useRef<StaggeredMenuRef>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const lenis = useLenis();
-
-  // Scroll locking logic to prevent multiple scrollbars and background shifting
-  useEffect(() => {
-    if (isMenuOpen) {
-      lenis?.stop();
-      document.documentElement.style.overflow = "hidden";
-      document.body.style.overflow = "hidden";
-    } else {
-      lenis?.start();
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-    }
-    
-    return () => {
-      lenis?.start();
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-    };
-  }, [isMenuOpen, lenis]);
 
   const menuItems = tabs.map((tab) => ({
     label: tab,
@@ -53,11 +32,10 @@ export function Profile() {
     <>
       {/* Background blur overlay when menu is open */}
       <div
-        className={`fixed inset-0 z-[150] transition-all duration-500 ease-in-out ${
-          isMenuOpen
-            ? "bg-black/40 backdrop-blur-sm opacity-100 pointer-events-auto"
-            : "bg-transparent backdrop-blur-none opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-[150] transition-all duration-500 ease-in-out ${isMenuOpen
+          ? "bg-black/40 backdrop-blur-sm opacity-100 pointer-events-auto"
+          : "bg-transparent backdrop-blur-none opacity-0 pointer-events-none"
+          }`}
         onClick={() => {
           if (isMenuOpen) {
             handleToggleMenu();
@@ -81,7 +59,7 @@ export function Profile() {
         />
       </div>
 
-      {/* Fixed Header Elements - Moved outside motion section for stability */}
+      {/* Fixed Header Elements */}
       <div className="flex items-center gap-2 fixed top-6 right-6 md:top-12 md:right-12 z-[250]">
         {/* Desktop theme toggle */}
         {isMenuOpen ? <div className="size-10"></div> : <ThemeToggle />}
@@ -131,47 +109,75 @@ export function Profile() {
         </button>
       </div>
 
-      <motion.section 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="flex flex-col items-start gap-6"
+      <motion.section
+        className="h-[100dvh] w-full flex flex-col items-center justify-center text-center gap-12 relative overflow-hidden"
       >
-        <div className="flex gap-2 items-start justify-between w-full">
-          <motion.div 
+        <div className="space-y-8 max-w-4xl px-6 relative z-10">
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-gray-200 dark:bg-gray-800 p-1 rounded-xl hover:backdrop-blur-sm transition-all duration-300 ease-in-out hover:shadow-lg"
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="flex justify-center mb-8"
           >
-            <div className="w-[3.75rem] h-[3.75rem] rounded-xl bg-gray-200 overflow-hidden shadow-sm transition-all duration-300 ease-in-out group-hover:backdrop">
-              <img
-                src={profile}
-                alt="Profile"
-                className="w-full h-full object-cover"
-              />
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-200 dark:bg-gray-800 p-1 shadow-2xl">
+              <div className="w-full h-full rounded-full overflow-hidden transition-all duration-700">
+                <img
+                  src={profile}
+                  alt="Profile"
+                  className="w-full h-full object-cover scale-100 hover:scale-110 transition-transform duration-700"
+                />
+              </div>
             </div>
           </motion.div>
+
+          <div className="space-y-6">
+            <div className="overflow-hidden py-2">
+              <motion.h1
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="text-[42px] md:text-[86px] leading-[1.1] font-medium text-text-primary-light dark:text-text-primary-dark tracking-[-0.04em]"
+              >
+                Jaydeep Prajapati.
+              </motion.h1>
+            </div>
+
+            <div className="overflow-hidden py-1 flex justify-center">
+              <motion.p
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="text-[18px] md:text-[24px] leading-relaxed text-text-primary-light/60 dark:text-text-primary-dark/60 tracking-tight max-w-2xl"
+              >
+                Junior Software Engineer crafting seamless digital experiences with precision and minimalist aesthetics.
+              </motion.p>
+            </div>
+          </div>
         </div>
 
-        <div className="space-y-4">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[25px] leading-[37.5px] font-medium text-text-primary-light dark:text-text-primary-dark tracking-[-0.5px]"
-          >
-            Hey, I'm Jaydeep Prajapati.
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[20px] leading-[30px] font-medium text-text-primary-light/60 dark:text-text-primary-dark/60 tracking-[-0.4px] max-w-lg"
-          >
-            Junior Software Engineer experienced in building responsive,
-            user-focused interfaces with maintainable and scalable code.
-          </motion.p>
-        </div>
+        {/* Animated Scroll Indicator - Modern Dot Style */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
+        >
+          <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-text-primary-light/40 dark:text-text-primary-dark/40">Scroll</span>
+          <div className="w-[2px] h-12 bg-black/10 dark:bg-white/10 relative overflow-hidden rounded-full">
+            <motion.div
+              animate={{
+                y: ["-100%", "100%"],
+                opacity: [0, 1, 0]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute top-0 left-0 w-full h-1/2 bg-[#ff5500] shadow-[0_0_8px_#ff5500]"
+            />
+          </div>
+        </motion.div>
       </motion.section>
     </>
   );
