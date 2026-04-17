@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { motion } from "framer-motion";
 import profile from "@/assets/images/avatar-logo.png";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { tabs } from "@/components/Navbar";
@@ -28,9 +29,18 @@ export function Profile() {
   };
 
   return (
-    <section className="flex flex-col items-start gap-6">
-      <div className="flex gap-2 items-start justify-between">
-        <div className="bg-gray-200 dark:bg-gray-800 p-1 rounded-xl hover:backdrop-blur-sm transition-all duration-300 ease-in-out hover:shadow-lg">
+    <motion.section 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="flex flex-col items-start gap-6"
+    >
+      <div className="flex gap-2 items-start justify-between w-full">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="bg-gray-200 dark:bg-gray-800 p-1 rounded-xl hover:backdrop-blur-sm transition-all duration-300 ease-in-out hover:shadow-lg"
+        >
           <div className="w-[3.75rem] h-[3.75rem] rounded-xl bg-gray-200 overflow-hidden shadow-sm transition-all duration-300 ease-in-out group-hover:backdrop">
             <img
               src={profile}
@@ -38,7 +48,7 @@ export function Profile() {
               className="w-full h-full object-cover"
             />
           </div>
-        </div>
+        </motion.div>
 
         <div className="flex items-center gap-2 fixed top-6 right-6 md:top-12 md:right-12 z-[200]">
           {/* Desktop theme toggle */}
@@ -121,14 +131,24 @@ export function Profile() {
       </div>
 
       <div className="space-y-4">
-        <h1 className="text-[25px] leading-[37.5px] font-medium text-text-primary-light dark:text-text-primary-dark tracking-[-0.5px]">
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="text-[25px] leading-[37.5px] font-medium text-text-primary-light dark:text-text-primary-dark tracking-[-0.5px]"
+        >
           Hey, I'm Jaydeep Prajapati.
-        </h1>
-        <p className="text-[20px] leading-[30px] font-medium text-text-primary-light/60 dark:text-text-primary-dark/60 tracking-[-0.4px] max-w-lg">
+        </motion.h1>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="text-[20px] leading-[30px] font-medium text-text-primary-light/60 dark:text-text-primary-dark/60 tracking-[-0.4px] max-w-lg"
+        >
           Junior Software Engineer experienced in building responsive,
           user-focused interfaces with maintainable and scalable code.
-        </p>
+        </motion.p>
       </div>
-    </section>
+    </motion.section>
   );
 }

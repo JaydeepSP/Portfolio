@@ -22,8 +22,9 @@ export function TechStack() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ }}
       className="flex flex-col"
     >
       {categories.map((category, catIdx) => {
@@ -35,9 +36,10 @@ export function TechStack() {
         return (
           <motion.div
             key={category}
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: catIdx * 0.08 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ margin: "-20px" }}
+            transition={{ duration: 0.6, delay: catIdx * 0.1, ease: "easeOut" }}
             className="flex items-start gap-6 py-5"
           >
             {/* Category label */}
@@ -55,9 +57,10 @@ export function TechStack() {
                 return (
                   <motion.span
                     key={item.name}
-                    initial={{ opacity: 0, scale: 0.85 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: catIdx * 0.08 + idx * 0.04 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ }}
+                    transition={{ delay: catIdx * 0.1 + idx * 0.05 }}
                     whileHover={{ scale: 1.05 }}
                     className="inline-flex items-center gap-[6px] px-3 py-[5px] rounded-full border border-gray-300 dark:border-white/10 bg-gray-100 dark:bg-white/5 text-sm font-semibold text-gray-700 dark:text-white/85 cursor-default select-none transition-colors hover:border-gray-400 dark:hover:border-white/20 hover:bg-gray-200 dark:hover:bg-white/10"
                   >
