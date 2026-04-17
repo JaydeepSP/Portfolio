@@ -25,7 +25,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   return (
     <AnimatePresence>
       {isOpen && project && (
-        <div className="fixed inset-0 z-[200] flex justify-end">
+        <div className="fixed inset-0 z-[400] flex justify-end">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
