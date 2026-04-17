@@ -258,7 +258,7 @@ export const links: SocialLink[] = [
     username: "@JaydeepSP",
     url: "https://github.com/JaydeepSP",
     icon: Github,
-    color: "group-hover:!text-gray-800",
+    color: "group-hover:!text-green-500",
   },
   {
     name: "Email",
