@@ -2,7 +2,6 @@ import { Layout } from "@/components/Layout";
 import { Profile } from "@/components/Profile";
 import { Projects } from "@/components/tabs/Projects";
 import { Experience } from "@/components/tabs/Experience";
-import { Education } from "@/components/tabs/Education";
 import { TechStack } from "@/components/tabs/TechStack";
 import { Connect } from "@/components/tabs/Connect";
 import String from "@/components/ui/String";
@@ -38,10 +37,10 @@ function App() {
           <SectionHeading title="Experience" />
           <Experience />
         </section>
-        <section id="education">
+        {/* <section id="education">
           <SectionHeading title="Education" />
           <Education />
-        </section>
+        </section> */}
         <section id="tech-stack">
           <SectionHeading title="Tech Stack" />
           <TechStack />
