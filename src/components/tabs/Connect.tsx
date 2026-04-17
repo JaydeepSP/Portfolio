@@ -5,8 +5,7 @@ export function Connect() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ margin: "-40px" }}
+      animate={{ opacity: 1, y: 0 }}
       className="flex flex-col gap-1 relative z-10 w-fit"
     >
       {links.map((link, index) => (

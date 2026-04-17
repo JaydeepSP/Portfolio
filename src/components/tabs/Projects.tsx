@@ -37,14 +37,9 @@ export function Projects() {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ margin: "-50px" }}
-            transition={{ 
-              duration: 0.8, 
-              delay: (index % 3) * 0.1, 
-              ease: [0.215, 0.61, 0.355, 1] 
-            }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.06 }}
             onClick={() => handleProjectClick(project)}
             className="group flex items-start justify-between gap-6 py-5 border-b border-gray-100 dark:border-white/5 cursor-pointer hover:bg-gray-50 dark:hover:bg-white/[0.02] -mx-4 px-4 rounded-xl transition-colors duration-200"
           >
