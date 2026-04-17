@@ -29,7 +29,7 @@ export function Profile() {
 
   return (
     <section className="flex flex-col items-start gap-6">
-      <div className="flex gap-2 items-start justify-between w-full">
+      <div className="flex gap-2 items-start justify-between w-full sticky top-6 md:top-12 z-[200]">
         <div className="bg-gray-200 dark:bg-gray-800 p-1 rounded-xl hover:backdrop-blur-sm transition-all duration-300 ease-in-out hover:shadow-lg">
           <div className="w-[3.75rem] h-[3.75rem] rounded-xl bg-gray-200 overflow-hidden shadow-sm transition-all duration-300 ease-in-out group-hover:backdrop">
             <img
@@ -40,14 +40,8 @@ export function Profile() {
           </div>
         </div>
 
-        <div
-          className={`flex items-center gap-2 z-[200] ${
-            isMenuOpen
-              ? "fixed top-6 right-6 md:top-12 md:right-20 size-10"
-              : "relative"
-          }`}
-        >
-          {/* <ThemeToggle /> */}
+        <div className="flex items-center gap-2">
+          {/* Desktop theme toggle */}
           {isMenuOpen ? <div className="size-10"></div> : <ThemeToggle />}
 
           {/*menu toggle button */}
