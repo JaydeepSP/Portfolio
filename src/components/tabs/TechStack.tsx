@@ -24,7 +24,7 @@ export function TechStack() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="flex flex-col divide-y divide-gray-200 dark:divide-white/5"
+      className="flex flex-col"
     >
       {categories.map((category, catIdx) => {
         const items = stack.filter(
