@@ -155,29 +155,6 @@ export function Profile() {
           </div>
         </div>
 
-        {/* Animated Scroll Indicator - Modern Dot Style */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
-        >
-          <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-text-primary-light/40 dark:text-text-primary-dark/40">Scroll</span>
-          <div className="w-[2px] h-12 bg-black/10 dark:bg-white/10 relative overflow-hidden rounded-full">
-            <motion.div
-              animate={{
-                y: ["-100%", "100%"],
-                opacity: [0, 1, 0]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute top-0 left-0 w-full h-1/2 bg-[#ff5500] shadow-[0_0_8px_#ff5500]"
-            />
-          </div>
-        </motion.div>
       </motion.section>
     </>
   );
