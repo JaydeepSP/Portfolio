@@ -40,9 +40,15 @@ export function Profile() {
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div
+          className={`flex items-center gap-2 z-[200] ${isMenuOpen
+            ? "fixed top-6 right-6 md:top-12 md:right-20 size-10"
+            : "relative"
+            }`}
+        >
           {/* Desktop theme toggle */}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
+          {!isMenuOpen && <ThemeToggle />}
 
           {/* Mobile menu toggle button */}
           <button

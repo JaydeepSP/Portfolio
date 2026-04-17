@@ -444,8 +444,8 @@ export const StaggeredMenu = forwardRef<StaggeredMenuRef, StaggeredMenuProps>(
     return (
       <div
         className={`sm-scope z-[100] ${isFixed || open
-            ? "fixed inset-0 w-screen h-screen overflow-hidden"
-            : "relative"
+          ? "fixed inset-0 w-screen h-screen overflow-hidden"
+          : "relative"
           }`}
       >
         <div
@@ -511,54 +511,8 @@ export const StaggeredMenu = forwardRef<StaggeredMenuRef, StaggeredMenuProps>(
             }}
             aria-hidden={!open}
           >
-            {/* Close Button */}
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                closeMenu();
-              }}
-              type="button"
-              className="group !absolute top-8 right-8 inline-flex items-center gap-[0.3rem] text-sm font-semibold text-black dark:text-white hover:text-[#ff5500] dark:hover:text-[#ff5500] transition-colors duration-300 ease-in-out cursor-pointer overflow-visible z-50"
-              aria-label="Close menu"
-            >
-              <span className="relative inline-block h-[1em] overflow-hidden whitespace-nowrap w-auto">
-                <span
-                  className="flex flex-col leading-none transition-transform duration-[500ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
-                  style={{
-                    transform: open ? "translateY(-50%)" : "translateY(0)",
-                  }}
-                >
-                  <span className="block h-[1em] leading-none uppercase">
-                    Menu
-                  </span>
-                  <span className="block h-[1em] leading-none uppercase">
-                    Close
-                  </span>
-                </span>
-              </span>
-
-              <span className="relative w-[14px] h-[14px] shrink-0 inline-flex items-center justify-center -translate-y-[1px]">
-                <span
-                  className="absolute left-1/2 top-1/2 w-full h-[2px] bg-current rounded-[2px] transition-transform duration-[500ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
-                  style={{
-                    transform: open
-                      ? "translate(-50%, -50%) rotate(45deg)"
-                      : "translate(-50%, -50%) rotate(0deg)",
-                  }}
-                />
-                <span
-                  className="absolute left-1/2 top-1/2 w-full h-[2px] bg-current rounded-[2px] transition-transform duration-[500ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
-                  style={{
-                    transform: open
-                      ? "translate(-50%, -50%) rotate(-45deg)"
-                      : "translate(-50%, -50%) rotate(90deg)",
-                  }}
-                />
-              </span>
-            </button>
-
-            <div className="sm-panel-inner flex-1 flex flex-col gap-5">
+            {/* Central content */}
+            <div className="sm-panel-inner flex-1 flex flex-col gap-5 ">
               <ul
                 className="sm-panel-list list-none m-0 p-0 flex flex-col gap-2"
                 role="list"
@@ -599,7 +553,7 @@ export const StaggeredMenu = forwardRef<StaggeredMenuRef, StaggeredMenuProps>(
 
               {displaySocials && socialItems && socialItems.length > 0 && (
                 <div
-                  className="sm-socials mt-auto pt-8 flex flex-col gap-3"
+                  className="sm-socials mt-auto flex flex-col gap-3"
                   aria-label="Social links"
                 >
                   <h3 className="sm-socials-title m-0 text-xs font-black uppercase tracking-[0.3em] [color:var(--sm-accent,#ff5500)]">
