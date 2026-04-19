@@ -24,7 +24,7 @@ export function Experience() {
           trigger: containerRef.current,
           start: "top 80%",
           end: "bottom 80%",
-          scrub: 1.5, // Smooth "floaty" feel
+          scrub: 0.8, // Snappier response
         },
       }
     );
@@ -35,7 +35,7 @@ export function Experience() {
       ref={containerRef}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ }}
+      viewport={{ once: true }}
       className="relative origin-top"
     >
       {/* Vertical timeline line container */}
@@ -53,7 +53,7 @@ export function Experience() {
             key={index}
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ margin: "-40px" }}
+            viewport={{ margin: "-40px", once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="relative pl-9"
           >
@@ -62,7 +62,7 @@ export function Experience() {
               <motion.div 
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
-                viewport={{ }}
+                viewport={{ once: true }}
                 transition={{ type: "spring", damping: 12, stiffness: 200, delay: 0.2 }}
                 className="w-[11px] h-[11px] rounded-full border-2 border-[#ff5500] bg-white dark:bg-[#0a0a0a] z-10" 
               />

@@ -17,14 +17,18 @@ export function Layout({ children }: LayoutProps) {
   }, []);
 
   useGSAP(() => {
+    const spotlight = document.getElementById("spotlight");
+    if (!spotlight) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
 
-      gsap.to(document.documentElement, {
-        "--mouse-x": `${clientX}px`,
-        "--mouse-y": `${clientY}px`,
+      gsap.to(spotlight, {
+        x: clientX,
+        y: clientY,
         duration: 0.6,
         ease: "power2.out",
+        overwrite: true,
       });
     };
 
@@ -34,11 +38,11 @@ export function Layout({ children }: LayoutProps) {
 
   return (
     <ReactLenis root options={{
-      duration: 1.5,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: 1.2,
       orientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 1.1,
+      wheelMultiplier: 1.0,
+      lerp: 0.1,
     }}>
       <div className="noise-overlay" />
       <div className="spotlight" id="spotlight" />

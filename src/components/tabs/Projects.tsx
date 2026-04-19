@@ -39,7 +39,7 @@ export function Projects() {
             key={index}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ margin: "-50px" }}
+            viewport={{ margin: "-50px", once: true }}
             transition={{ 
               duration: 0.8, 
               delay: (index % 3) * 0.1, 

@@ -24,7 +24,7 @@ export function TechStack() {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ }}
+      viewport={{ once: true }}
       className="flex flex-col"
     >
       {categories.map((category, catIdx) => {
@@ -38,7 +38,7 @@ export function TechStack() {
             key={category}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ margin: "-20px" }}
+            viewport={{ margin: "-20px", once: true }}
             transition={{ duration: 0.6, delay: catIdx * 0.1, ease: "easeOut" }}
             className="flex items-start gap-6 py-5"
           >
@@ -59,7 +59,7 @@ export function TechStack() {
                     key={item.name}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ }}
+                    viewport={{ once: true }}
                     transition={{ delay: catIdx * 0.1 + idx * 0.05 }}
                     whileHover={{ scale: 1.05 }}
                     className="inline-flex items-center gap-[6px] px-3 py-[5px] rounded-full border border-gray-300 dark:border-white/10 bg-gray-100 dark:bg-white/5 text-sm font-semibold text-gray-700 dark:text-white/85 cursor-default select-none transition-colors hover:border-gray-400 dark:hover:border-white/20 hover:bg-gray-200 dark:hover:bg-white/10"
