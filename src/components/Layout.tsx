@@ -1,7 +1,6 @@
 import { type ReactNode, useEffect } from "react";
 import { ReactLenis } from "lenis/react";
 import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "lenis/dist/lenis.css";
 
@@ -16,25 +15,7 @@ export function Layout({ children }: LayoutProps) {
     ScrollTrigger.refresh();
   }, []);
 
-  useGSAP(() => {
-    const spotlight = document.getElementById("spotlight");
-    if (!spotlight) return;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-
-      gsap.to(spotlight, {
-        x: clientX,
-        y: clientY,
-        duration: 0.6,
-        ease: "power2.out",
-        overwrite: true,
-      });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
 
   return (
     <ReactLenis root options={{
