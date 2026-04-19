@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/StaggeredMenu";
 import BlurText from "@/components/ui/BlurText";
 import ShinyText from "@/components/ui/ShinyText";
-import Particles from "./ui/Particles";
+import Particles from "@/components/ui/Particles";
 
 export function Profile() {
   const menuRef = useRef<StaggeredMenuRef>(null);
@@ -178,7 +178,6 @@ export function Profile() {
             </div>
           </div>
         </div>
-
       </motion.section>
     </>
   );
