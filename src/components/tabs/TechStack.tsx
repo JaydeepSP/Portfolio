@@ -40,7 +40,7 @@ export function TechStack() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ margin: "-20px", once: true }}
             transition={{ duration: 0.6, delay: catIdx * 0.1, ease: "easeOut" }}
-            className="flex max-md:flex-col items-start gap-6 py-5"
+            className="flex max-md:flex-col items-start gap-6 py-4 first:pt-0 last:pb-0"
           >
             {/* Category label */}
             <span

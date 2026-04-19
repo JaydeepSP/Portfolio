@@ -14,7 +14,7 @@ export function SectionHeading({ title, className }: SectionHeadingProps) {
       viewport={{ margin: "-60px" }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={clsx(
-        "text-xl sm:text-3xl md:text-[64px] font-bold mb-12 uppercase tracking-tight text-gray-400 dark:text-white",
+        "text-xl sm:text-3xl md:text-[64px] font-bold md:mb-12 uppercase tracking-tight text-gray-400 dark:text-white",
         className,
       )}
     >
