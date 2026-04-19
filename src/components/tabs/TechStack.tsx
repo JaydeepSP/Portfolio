@@ -44,7 +44,7 @@ export function TechStack() {
           >
             {/* Category label */}
             <span
-              className="text-xs font-black uppercase tracking-[0.15em] w-28 shrink-0 pt-[6px]"
+              className="text-xs font-black uppercase tracking-[0.15em] md:w-28 shrink-0 pt-[6px]"
               style={{ color: accentColor }}
             >
               {category}
