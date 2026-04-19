@@ -22,10 +22,6 @@ function App() {
           <SectionHeading title="Experience" />
           <Experience />
         </section>
-        {/* <section id="education">
-          <SectionHeading title="Education" />
-          <Education />
-        </section> */}
         <section id="tech-stack">
           <SectionHeading title="Tech Stack" />
           <TechStack />
