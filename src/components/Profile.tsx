@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/StaggeredMenu";
 import BlurText from "@/components/ui/BlurText";
 import ShinyText from "@/components/ui/ShinyText";
+import Particles from "./ui/Particles";
 
 export function Profile() {
   const menuRef = useRef<StaggeredMenuRef>(null);
@@ -113,6 +114,20 @@ export function Profile() {
       <motion.section
         className="h-[100dvh] w-full flex flex-col items-center justify-center text-center gap-12 relative overflow-hidden"
       >
+        <div className="absolute inset-0 z-0">
+          <Particles
+            particleCount={150}
+            particleSpread={12}
+            speed={0.15}
+            particleColors={["#ff5500", "#ffffff"]}
+            moveParticlesOnHover={true}
+            particleHoverFactor={1}
+            alphaParticles={true}
+            particleBaseSize={80}
+            sizeRandomness={1}
+            cameraDistance={20}
+          />
+        </div>
         <div className="space-y-8 max-w-4xl px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -159,7 +174,6 @@ export function Profile() {
                   pauseOnHover={false}
                   disabled={false}
                 />
-                {" "}crafting seamless digital experiences with precision and minimalist aesthetics.
               </motion.p>
             </div>
           </div>
