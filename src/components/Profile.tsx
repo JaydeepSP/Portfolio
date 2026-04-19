@@ -137,7 +137,7 @@ export function Profile() {
               <h1
                 className="text-[42px] md:text-[86px] leading-[1.1] font-medium text-text-primary-light dark:text-text-primary-dark tracking-[-0.04em]"
               >
-                <BlurText text="Jaydeep Prajapati." delay={100} />
+                <BlurText text="Jaydeep Prajapati." delay={300} />
               </h1>
             </div>
 

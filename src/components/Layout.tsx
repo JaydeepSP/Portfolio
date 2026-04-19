@@ -15,8 +15,6 @@ export function Layout({ children }: LayoutProps) {
     ScrollTrigger.refresh();
   }, []);
 
-
-
   return (
     <ReactLenis root options={{
       duration: 1.2,
