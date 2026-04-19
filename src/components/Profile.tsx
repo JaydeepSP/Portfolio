@@ -8,6 +8,8 @@ import {
   StaggeredMenu,
   type StaggeredMenuRef,
 } from "@/components/ui/StaggeredMenu";
+import BlurText from "@/components/ui/BlurText";
+import ShinyText from "@/components/ui/ShinyText";
 
 export function Profile() {
   const menuRef = useRef<StaggeredMenuRef>(null);
@@ -132,14 +134,11 @@ export function Profile() {
 
           <div className="space-y-6">
             <div className="overflow-hidden py-2">
-              <motion.h1
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              <h1
                 className="text-[42px] md:text-[86px] leading-[1.1] font-medium text-text-primary-light dark:text-text-primary-dark tracking-[-0.04em]"
               >
-                Jaydeep Prajapati.
-              </motion.h1>
+                <BlurText text="Jaydeep Prajapati." delay={100} />
+              </h1>
             </div>
 
             <div className="overflow-hidden py-1 flex justify-center">
@@ -149,7 +148,19 @@ export function Profile() {
                 transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className="text-[18px] md:text-[24px] leading-relaxed text-text-primary-light/60 dark:text-text-primary-dark/60 tracking-tight max-w-2xl"
               >
-                Junior Software Engineer crafting seamless digital experiences with precision and minimalist aesthetics.
+                <ShinyText
+                  text="Junior Software Engineer"
+                  speed={2}
+                  delay={0}
+                  color="#ff5500"
+                  shineColor="#ffffff"
+                  spread={120}
+                  direction="left"
+                  yoyo={false}
+                  pauseOnHover={false}
+                  disabled={false}
+                />
+                {" "}crafting seamless digital experiences with precision and minimalist aesthetics.
               </motion.p>
             </div>
           </div>
