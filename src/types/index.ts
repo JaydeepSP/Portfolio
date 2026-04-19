@@ -43,14 +43,6 @@ export type Experience = {
   description: string[];
 };
 
-/* ---------- Education ---------- */
-export type Education = {
-  school: string;
-  degree: string;
-  duration: string;
-  location: string;
-  grade: string;
-};
 
 /* ---------- Testimonial ---------- */
 export type Testimonial = {

@@ -22,7 +22,6 @@ import type {
   SocialLink,
   TechStackItem,
   Experience,
-  Education,
 } from "../types";
 import arcDesk from "@/assets/images/projects/arc-desk.png";
 import languageTranslator from "@/assets/images/projects/language-translator.png";
@@ -34,14 +33,12 @@ import portfolio from "@/assets/images/projects/portfolio.png";
 export type Tab =
   | "Projects"
   | "Experience"
-  | "Education"
   | "Tech Stack"
   | "Connect";
 
 export const tabs: Tab[] = [
   "Projects",
   "Experience",
-  "Education",
   "Tech Stack",
   "Connect",
 ];
@@ -218,23 +215,6 @@ export const experiences: Experience[] = [
       "Integrated REST APIs using React Query (TanStack Query).",
       "Built and validated forms using Formik and Yup.",
     ],
-  },
-];
-
-export const educations: Education[] = [
-  {
-    school: "K.S.School of Information technology, Gujarat University",
-    degree: "M.SC(CA and IT)",
-    duration: "July, 2023 – June, 2025",
-    location: "Ahmedabad, India",
-    grade: "GPA - 3.73/5.00",
-  },
-  {
-    school: "K.S.School of Information technology, Gujarat University",
-    degree: "B.SC(CA and IT)",
-    duration: "July, 2020 – June, 2023",
-    location: "Ahmedabad, India",
-    grade: "GPA - 3.63/5.00",
   },
 ];
 
