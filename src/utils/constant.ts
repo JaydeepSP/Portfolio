@@ -31,6 +31,20 @@ import currencyConvertor from "@/assets/images/projects/currency-convertor.png";
 import qrCode from "@/assets/images/projects/qr-code.png";
 import portfolio from "@/assets/images/projects/portfolio.png";
 
+export type Tab =
+  | "Projects"
+  | "Experience"
+  | "Education"
+  | "Tech Stack"
+  | "Connect";
+
+export const tabs: Tab[] = [
+  "Projects",
+  "Experience",
+  "Education",
+  "Tech Stack",
+  "Connect",
+];
 export const stack: TechStackItem[] = [
   // Frontend
   { name: "HTML", icon: Code, category: "Frontend" },

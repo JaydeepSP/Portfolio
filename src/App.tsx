@@ -9,24 +9,9 @@ import { SectionHeading } from "./components/ui/SectionHeading";
 import { ScrollToTopButton } from "./components/ui/ScrollToTopButton";
 
 function App() {
-  // const [activeTab, setActiveTab] = useState<Tab>("Projects");
-
   return (
     <Layout>
       <Profile />
-      {/* <Navbar activeTab={activeTab} setActiveTab={setActiveTab} /> */}
-
-      {/* Desktop Tabbed View */}
-      {/* <div className="hidden md:block">
-        <AnimatePresence mode="wait">
-          {activeTab === "Projects" && <Projects key="Projects" />}
-          {activeTab === "Experience" && <Experience key="Experience" />}
-          {activeTab === "Education" && <Education key="Education" />}
-          {activeTab === "Tech Stack" && <TechStack key="Tech Stack" />}
-          {activeTab === "Connect" && <Connect key="Connect" />}
-        </AnimatePresence>
-      </div> */}
-
       {/* Main Content Sections - Added padding back here since Layout is now full-screen */}
       <div className="md:space-y-24 space-y-10 px-6 pt-4 md:px-12">
         <section id="projects">

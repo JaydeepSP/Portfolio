@@ -2,8 +2,7 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import profile from "@/assets/images/avatar-logo.png";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { tabs } from "@/components/Navbar";
-import { links } from "@/utils/constant";
+import { links, tabs } from "@/utils/constant";
 import {
   StaggeredMenu,
   type StaggeredMenuRef,
