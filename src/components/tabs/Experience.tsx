@@ -9,21 +9,21 @@ export function Experience() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      className="relative w-full flex justify-center py-12 px-4"
+      className="relative w-full flex justify-center py-4 md:py-10 lg:pt-24"
     >
-      <CardSwap 
-        width={560} // Fixed width on desktop for better design control
-        height={380} 
-        cardDistance={40} 
-        verticalDistance={40} 
+      <CardSwap
+        width={"100%"}
+        height={380}
+        cardDistance={40}
+        verticalDistance={40}
         delay={4500}
-        pauseOnHover={true}
+        pauseOnHover={false}
       >
         {experiences.map((exp, index) => (
           <Card key={index} customClass="p-6 md:p-10 flex flex-col gap-6 !border-white/20 shadow-2xl overflow-hidden">
             {/* Background design elements */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#ff5500]/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
-            
+
             {/* Header section */}
             <div className="flex flex-col gap-1 relative z-10">
               <div className="flex items-center gap-2 text-[#ff5500] mb-1">
@@ -32,13 +32,13 @@ export function Experience() {
                   Work Experience
                 </span>
               </div>
-              
+
               <div className="flex justify-between items-start gap-4">
                 <h3 className="text-2xl md:text-3xl font-black text-gray-900 dark:text-white tracking-tighter uppercase leading-none">
                   {exp.role}
                 </h3>
               </div>
-              
+
               <p className="text-lg font-bold text-[#ff5500]/90 italic mt-1">
                 @ {exp.company}
               </p>
@@ -69,7 +69,7 @@ export function Experience() {
                 ))}
               </ul>
             </div>
-            
+
             {/* Bottom Decor */}
             <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#ff5500]/20 to-transparent" />
           </Card>
