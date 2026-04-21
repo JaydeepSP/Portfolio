@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowUpRight } from "lucide-react";
 import type { Project } from "@/types";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const DOT_COLORS = [
   "#3b82f6", // blue
@@ -73,7 +74,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
             <div className="flex-1 overflow-y-auto">
               {/* Project Image */}
               <div className="relative w-full aspect-video overflow-hidden">
-                <img
+                <LazyLoadImage
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"
