@@ -11,6 +11,7 @@ import BlurText from "@/components/ui/BlurText";
 import ShinyText from "@/components/ui/ShinyText";
 import Particles from "@/components/ui/Particles";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export function Profile() {
   const menuRef = useRef<StaggeredMenuRef>(null);
@@ -147,6 +148,7 @@ export function Profile() {
                 <LazyLoadImage
                   src={profile}
                   alt="img"
+                  effect="blur"
                   className="w-full h-full object-cover scale-100 hover:scale-110 transition-transform duration-700"
                 />
               </div>

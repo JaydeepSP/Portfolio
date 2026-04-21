@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowUpRight } from "lucide-react";
 import type { Project } from "@/types";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const DOT_COLORS = [
   "#3b82f6", // blue
@@ -77,6 +78,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                 <LazyLoadImage
                   src={project.image}
                   alt={project.title}
+                  effect="blur"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#0f0f0f] to-transparent" />
