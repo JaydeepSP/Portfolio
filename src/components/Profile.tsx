@@ -122,7 +122,7 @@ export function Profile() {
             particleSpread={12}
             speed={0.15}
             particleColors={["#ff5500", "#ffffff"]}
-            moveParticlesOnHover={true}
+            moveParticlesOnHover={false}
             particleHoverFactor={1}
             alphaParticles={true}
             particleBaseSize={80}
