@@ -7,7 +7,7 @@ export function Connect() {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ margin: "-40px" }}
-      className="flex flex-col gap-1 relative z-10 w-fit"
+      className="flex flex-col gap-1 relative z-10 w-fit max-md:pt-2"
     >
       {links.map((link, index) => (
         <a
