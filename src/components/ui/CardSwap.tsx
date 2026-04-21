@@ -107,6 +107,19 @@ const CardSwap: React.FC<CardSwapProps> = ({
   const intervalRef = useRef<number>(0);
   const container = useRef<HTMLDivElement>(null);
   const isPaused = useRef(false);
+  const isInView = useRef(false);
+
+  useEffect(() => {
+    if (!container.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isInView.current = entry.isIntersecting;
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(container.current);
+    return () => observer.disconnect();
+  }, []);
 
   const swap = useCallback(() => {
     if (order.current.length < 2) return;
@@ -169,7 +182,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
   const startInterval = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = window.setInterval(() => {
-      if (!isPaused.current) swap();
+      if (!isPaused.current && isInView.current) swap();
     }, delay);
   }, [delay, swap]);
 
