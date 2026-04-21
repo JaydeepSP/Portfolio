@@ -139,17 +139,11 @@ export function Profile() {
           >
             <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-200 dark:bg-gray-800 p-1 shadow-2xl">
               <div className="w-full h-full rounded-full overflow-hidden transition-all duration-700">
-                {/* <img
-                  src={profile}
-                  alt="Profile"
-                  className="w-full h-full object-cover scale-100 hover:scale-110 transition-transform duration-700"
-                /> */}
-
                 <LazyLoadImage
                   src={profile}
                   alt="img"
                   effect="blur"
-                  className="w-full h-full object-cover scale-100 hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
