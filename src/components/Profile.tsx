@@ -114,7 +114,7 @@ export function Profile() {
       </div>
 
       <motion.section
-        className="h-[100dvh] w-full flex flex-col items-center justify-center text-center gap-12 relative overflow-hidden"
+        className="h-[100vh] w-full flex flex-col items-center justify-center text-center gap-12 relative overflow-hidden"
       >
         <div className="absolute inset-0 z-0">
           <Particles
