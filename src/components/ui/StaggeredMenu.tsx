@@ -422,6 +422,20 @@ export const StaggeredMenu = forwardRef<StaggeredMenuRef, StaggeredMenuProps>(
     );
 
     React.useEffect(() => {
+      if (open) {
+        document.body.style.overflow = "hidden";
+        document.documentElement.classList.add("lenis-stopped");
+      } else {
+        document.body.style.overflow = "";
+        document.documentElement.classList.remove("lenis-stopped");
+      }
+      return () => {
+        document.body.style.overflow = "";
+        document.documentElement.classList.remove("lenis-stopped");
+      };
+    }, [open]);
+
+    React.useEffect(() => {
       if (!closeOnClickAway || !open) return;
 
       const handleClickOutside = (event: MouseEvent) => {
@@ -510,6 +524,7 @@ export const StaggeredMenu = forwardRef<StaggeredMenuRef, StaggeredMenuProps>(
               WebkitBackdropFilter: "blur(12px)",
             }}
             aria-hidden={!open}
+            data-lenis-prevent
           >
             {/* Central content */}
             <div className="sm-panel-inner flex-1 flex flex-col gap-5 ">
