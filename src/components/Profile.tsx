@@ -107,11 +107,7 @@ export function Profile() {
         <button
           onClick={handleToggleMenu}
           type="button"
-          className={`sm-scope sm-toggle group inline-flex items-center gap-[0.3rem] text-sm font-semibold transition-colors duration-300 ease-in-out cursor-pointer overflow-visible border rounded-full p-2 backdrop-blur-sm ${
-            isMenuOpen
-              ? "text-white dark:text-white border-white/20"
-              : "text-text-primary-light dark:text-text-primary-dark border-black/10 dark:border-white/10"
-          } hover:text-[#ff5500] dark:hover:text-[#ff5500]`}
+          className="sm-scope sm-toggle group inline-flex items-center gap-[0.3rem] text-sm font-semibold transition-colors duration-300 ease-in-out cursor-pointer overflow-visible border border-black/10 dark:border-white/10 rounded-full p-2 backdrop-blur-sm text-text-primary-light dark:text-text-primary-dark hover:text-[#ff5500] dark:hover:text-[#ff5500]"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMenuOpen}
         >

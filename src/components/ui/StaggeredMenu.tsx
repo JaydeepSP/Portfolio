@@ -519,7 +519,7 @@ export const StaggeredMenu = forwardRef<StaggeredMenuRef, StaggeredMenuProps>(
           <aside
             id="staggered-menu-panel"
             ref={panelRef}
-            className="staggered-menu-panel absolute top-0 right-0 h-full bg-white dark:bg-[#0a0a0a] flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-10 backdrop-blur-sm pointer-events-auto"
+            className="staggered-menu-panel absolute top-0 right-0 h-full bg-primary-light dark:bg-primary-dark flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-10 backdrop-blur-sm pointer-events-auto"
             style={{
               WebkitBackdropFilter: "blur(12px)",
             }}
@@ -540,7 +540,7 @@ export const StaggeredMenu = forwardRef<StaggeredMenuRef, StaggeredMenuProps>(
                       key={it.label + idx}
                     >
                       <a
-                        className="sm-panel-item relative text-black dark:text-white font-black text-[3rem] md:text-[4rem] cursor-pointer leading-none tracking-tighter uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[1.4em] hover:text-[#ff5500] dark:hover:text-[#ff5500]"
+                        className="sm-panel-item relative text-text-primary-light dark:text-text-primary-dark font-black text-[3rem] md:text-[4rem] cursor-pointer leading-none tracking-tighter uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[1.4em] hover:text-[#ff5500] dark:hover:text-[#ff5500]"
                         href={it.link}
                         onClick={closeMenu}
                         aria-label={it.ariaLabel}
@@ -584,7 +584,7 @@ export const StaggeredMenu = forwardRef<StaggeredMenuRef, StaggeredMenuProps>(
                           href={s.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="sm-socials-link text-[0.9rem] font-black uppercase tracking-widest text-[#111] dark:text-white/60 no-underline relative inline-block py-[2px] transition-[color,opacity] duration-300 ease-linear hover:text-[#ff5500] dark:hover:text-[#ff5500] hover:opacity-100"
+                          className="sm-socials-link text-[0.9rem] font-black uppercase tracking-widest text-text-secondary-light dark:text-text-secondary-dark no-underline relative inline-block py-[2px] transition-[color,opacity] duration-300 ease-linear hover:text-[#ff5500] dark:hover:text-[#ff5500] hover:opacity-100"
                         >
                           {s.label}
                         </a>
