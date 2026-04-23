@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import profile from "@/assets/images/avatar-logo.png";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { links, tabs } from "@/utils/constant";
@@ -31,6 +31,23 @@ export function Profile() {
   const handleToggleMenu = () => {
     menuRef.current?.toggle();
   };
+
+  const designations = [
+    "Jr. Software Engineer",
+    "Frontend Developer",
+    "React Developer",
+    "Full Stack Developer",
+    "Problem Solver",
+    "UI/UX Designer"
+  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % designations.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [designations.length]);
 
   return (
     <>
@@ -72,7 +89,7 @@ export function Profile() {
         <button
           onClick={handleToggleMenu}
           type="button"
-          className="sm-scope sm-toggle group inline-flex items-center gap-[0.3rem] text-sm font-semibold text-text-primary-light dark:text-text-primary-dark hover:text-[#ff5500] dark:hover:text-[#ff5500] transition-colors duration-300 ease-in-out cursor-pointer overflow-visible border border-black/10 dark:border-white/10 rounded-full p-2 backdrop-blur-sm"
+          className="sm-scope sm-toggle group inline-flex items-center gap-[0.3rem] text-sm font-semibold text-text-primary-light text-text-primary-dark hover:text-[#ff5500] dark:hover:text-[#ff5500] transition-colors duration-300 ease-in-out cursor-pointer overflow-visible border border-black/10 dark:border-white/10 rounded-full p-2 backdrop-blur-sm"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMenuOpen}
         >
@@ -158,26 +175,36 @@ export function Profile() {
               </h1>
             </div>
 
-            <div className="overflow-hidden py-1 flex justify-center">
-              <motion.p
-                initial={{ y: "100%", opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[18px] md:text-[24px] leading-relaxed text-text-primary-light/60 dark:text-text-primary-dark/60 tracking-tight max-w-2xl"
+            <div className="py-1 flex justify-center">
+              <div
+                className="text-[18px] md:text-[24px] leading-relaxed text-text-primary-light/60 dark:text-text-primary-dark/60 tracking-tight max-w-2xl flex justify-center"
               >
-                <ShinyText
-                  text="Junior Software Engineer"
-                  speed={2}
-                  delay={0}
-                  color="#ff5500"
-                  shineColor="#ffffff"
-                  spread={120}
-                  direction="left"
-                  yoyo={false}
-                  pauseOnHover={false}
-                  disabled={false}
-                />
-              </motion.p>
+                <div className="h-[1.5em] flex items-center justify-center relative overflow-hidden">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={currentIndex}
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -20, opacity: 0 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className="font-bold"
+                    >
+                      <ShinyText
+                        text={designations[currentIndex]}
+                        speed={2}
+                        delay={0}
+                        color="#ff5500"
+                        shineColor="#ffffff"
+                        spread={120}
+                        direction="left"
+                        yoyo={false}
+                        pauseOnHover={false}
+                        disabled={false}
+                      />
+                    </motion.span>
+                  </AnimatePresence>
+                </div>
+              </div>
             </div>
           </div>
         </div>
