@@ -16,6 +16,24 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 export function Profile() {
   const menuRef = useRef<StaggeredMenuRef>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // Check initial theme
+    setIsDark(document.documentElement.classList.contains("dark"));
+
+    // Observe theme changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "class") {
+          setIsDark(document.documentElement.classList.contains("dark"));
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+    return () => observer.disconnect();
+  }, []);
 
   const menuItems = tabs.map((tab) => ({
     label: tab,
@@ -72,7 +90,7 @@ export function Profile() {
           items={menuItems}
           socialItems={socialItems}
           accentColor="#ff5500"
-          colors={["#171717", "#252525"]}
+          colors={isDark ? ["#171717", "#252525"] : ["#e5e5e5", "#d4d4d4"]}
           isFixed={true}
           renderToggleButton={() => null}
           onMenuOpen={() => setIsMenuOpen(true)}
@@ -89,7 +107,11 @@ export function Profile() {
         <button
           onClick={handleToggleMenu}
           type="button"
-          className="sm-scope sm-toggle group inline-flex items-center gap-[0.3rem] text-sm font-semibold text-text-primary-light text-text-primary-dark hover:text-[#ff5500] dark:hover:text-[#ff5500] transition-colors duration-300 ease-in-out cursor-pointer overflow-visible border border-black/10 dark:border-white/10 rounded-full p-2 backdrop-blur-sm"
+          className={`sm-scope sm-toggle group inline-flex items-center gap-[0.3rem] text-sm font-semibold transition-colors duration-300 ease-in-out cursor-pointer overflow-visible border rounded-full p-2 backdrop-blur-sm ${
+            isMenuOpen
+              ? "text-white dark:text-white border-white/20"
+              : "text-text-primary-light dark:text-text-primary-dark border-black/10 dark:border-white/10"
+          } hover:text-[#ff5500] dark:hover:text-[#ff5500]`}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMenuOpen}
         >
